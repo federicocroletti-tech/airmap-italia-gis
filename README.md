@@ -109,7 +109,38 @@ npm run build
 Output:
 
 ```text
-dist/airmap-italia
+dist/airmap-italia-gis/browser
+```
+
+## Deploy Render
+
+Configurazione consigliata per Render Static Site.
+
+Build Command:
+
+```bash
+npm ci --legacy-peer-deps && npm run build
+```
+
+Publish Directory:
+
+```text
+dist/airmap-italia-gis/browser
+```
+
+Environment Variables:
+
+```text
+NODE_VERSION=22
+NPM_CONFIG_LEGACY_PEER_DEPS=true
+```
+
+Redirect/Rewrites Render per SPA Angular:
+
+```text
+Source: /*
+Destination: /index.html
+Action: Rewrite
 ```
 
 ## Test
