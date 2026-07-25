@@ -1,0 +1,186 @@
+<section class="analytics-page" aria-labelledby="analytics-title">
+  <header class="page-header">
+    <div>
+      <p>{{ 'ANALYTICS.EYEBROW' | translate }}</p>
+      <h1 id="analytics-title">{{ 'ANALYTICS.TITLE' | translate }}</h1>
+    </div>
+  </header>
+
+  <section class="filters" [attr.aria-label]="'ANALYTICS.FILTERS_ARIA' | translate">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'ANALYTICS.FILTER_DISTRICT' | translate }}</mat-label>
+      <mat-select
+        [value]="filters().district ?? ''"
+        (selectionChange)="updateDistrict($event.value)"
+      >
+        <mat-option value="">{{ 'ANALYTICS.ALL' | translate }}</mat-option>
+        @for (district of districts(); track district) {
+          <mat-option [value]="district">{{ district }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'ANALYTICS.FILTER_LEVEL' | translate }}</mat-label>
+      <mat-select
+        [value]="filters().pollutionLevel ?? ''"
+        (selectionChange)="updatePollutionLevel($event.value)"
+      >
+        <mat-option value="">{{ 'ANALYTICS.ALL' | translate }}</mat-option>
+        @for (level of pollutionLevels(); track level) {
+          <mat-option [value]="level">{{ level }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'ANALYTICS.FILTER_RANGE' | translate }}</mat-label>
+      <mat-select [value]="filters().timeRange" (selectionChange)="updateTimeRange($event.value)">
+        <mat-option value="24h">24h</mat-option>
+        <mat-option value="7d">7d</mat-option>
+        <mat-option value="30d">30d</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'ANALYTICS.FILTER_INDICATOR' | translate }}</mat-label>
+      <mat-select [value]="filters().indicator" (selectionChange)="updateIndicator($event.value)">
+        <mat-option value="aqi">AQI</mat-option>
+        <mat-option value="pm10">PM10</mat-option>
+        <mat-option value="pm25">PM2.5</mat-option>
+        <mat-option value="no2">NO2</mat-option>
+        <mat-option value="o3">O3</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </section>
+
+  <section class="ranking-grid">
+    <mat-card>
+      <mat-card-header
+        ><mat-card-title>{{
+          'ANALYTICS.MOST_POLLUTED' | translate
+        }}</mat-card-title></mat-card-header
+      >
+      <mat-card-content>
+        @for (row of mostPolluted(); track trackByName($index, row)) {
+          <p>
+            <strong>{{ row.name }}</strong
+            ><span>AQI {{ row.aqi }}</span>
+          </p>
+        }
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header
+        ><mat-card-title>{{
+          'ANALYTICS.LEAST_POLLUTED' | translate
+        }}</mat-card-title></mat-card-header
+      >
+      <mat-card-content>
+        @for (row of leastPolluted(); track trackByName($index, row)) {
+          <p>
+            <strong>{{ row.name }}</strong
+            ><span>AQI {{ row.aqi }}</span>
+          </p>
+        }
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header
+        ><mat-card-title>{{
+          'ANALYTICS.DISTRICT_AVERAGE' | translate
+        }}</mat-card-title></mat-card-header
+      >
+      <mat-card-content>
+        @for (row of districtAverages(); track row.district) {
+          <p>
+            <strong>{{ row.district }}</strong
+            ><span>AQI {{ row.aqi }}</span>
+          </p>
+        }
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <mat-card class="table-card">
+    <mat-card-header
+      ><mat-card-title>{{ 'ANALYTICS.RANKING_TABLE' | translate }}</mat-card-title></mat-card-header
+    >
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="table-filter">
+        <mat-label>{{ 'COMMON.SEARCH' | translate }}</mat-label>
+        <input
+          matInput
+          type="search"
+          (input)="applyTableFilter($event)"
+          [attr.aria-label]="'ANALYTICS.TABLE_FILTER_ARIA' | translate"
+        />
+      </mat-form-field>
+
+      <div class="table-wrap">
+        <table mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="name"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ 'ANALYTICS.AREA' | translate }}
+            </th>
+            <td mat-cell *matCellDef="let row">{{ row.name }}</td></ng-container
+          >
+          <ng-container matColumnDef="district"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ 'ANALYTICS.DISTRICT' | translate }}
+            </th>
+            <td mat-cell *matCellDef="let row">{{ row.district }}</td></ng-container
+          >
+          <ng-container matColumnDef="aqi"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>AQI</th>
+            <td mat-cell *matCellDef="let row">{{ row.aqi }}</td></ng-container
+          >
+          <ng-container matColumnDef="pm10"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>PM10</th>
+            <td mat-cell *matCellDef="let row">{{ row.pm10 }}</td></ng-container
+          >
+          <ng-container matColumnDef="pm25"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>PM2.5</th>
+            <td mat-cell *matCellDef="let row">{{ row.pm25 }}</td></ng-container
+          >
+          <ng-container matColumnDef="no2"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>NO2</th>
+            <td mat-cell *matCellDef="let row">{{ row.no2 }}</td></ng-container
+          >
+          <ng-container matColumnDef="riskLevel"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ 'ANALYTICS.RISK' | translate }}
+            </th>
+            <td mat-cell *matCellDef="let row">{{ row.riskLevel }}</td></ng-container
+          >
+          <ng-container matColumnDef="populationExposure"
+            ><th mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ 'ANALYTICS.POPULATION' | translate }}
+            </th>
+            <td mat-cell *matCellDef="let row">
+              {{ row.populationExposure | number }}
+            </td></ng-container
+          >
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            (click)="selectRow(row)"
+            [class.selected]="selectedRow()?.id === row.id"
+            tabindex="0"
+          ></tr>
+        </table>
+      </div>
+
+      <mat-paginator
+        [pageSize]="8"
+        [pageSizeOptions]="[5, 8, 15]"
+        showFirstLastButtons
+        [attr.aria-label]="'ANALYTICS.PAGINATION_ARIA' | translate"
+      />
+    </mat-card-content>
+  </mat-card>
+</section>

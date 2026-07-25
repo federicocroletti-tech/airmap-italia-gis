@@ -1,0 +1,52 @@
+.map-shell {
+  background: var(--airmap-map-bg);
+  border: 1px solid var(--airmap-border);
+  border-radius: 8px;
+  height: 100%;
+  min-height: 36rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-canvas {
+  height: 100%;
+  min-height: inherit;
+  width: 100%;
+}
+
+.map-actions {
+  display: grid;
+  gap: 0.7rem;
+  left: 1rem;
+  position: absolute;
+  top: 1rem;
+  z-index: 500;
+}
+
+:host ::ng-deep .leaflet-control-container .leaflet-top.leaflet-right {
+  top: 1rem;
+}
+
+:host ::ng-deep .airmap-tooltip {
+  background: var(--airmap-tooltip-bg);
+  border: 1px solid var(--airmap-border);
+  border-radius: 8px;
+  box-shadow: var(--airmap-panel-shadow);
+  color: var(--airmap-text);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  padding: 0.65rem 0.75rem;
+}
+
+:host ::ng-deep .air-quality-polygon {
+  transition:
+    fill-opacity 140ms ease,
+    stroke-width 140ms ease;
+}
+
+@media (max-width: 768px) {
+  .map-shell {
+    border-radius: 0;
+    min-height: calc(100vh - 8rem);
+  }
+}

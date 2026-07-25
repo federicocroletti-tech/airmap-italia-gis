@@ -1,0 +1,547 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "quarto-oggiaro",
+        "name": "Quarto Oggiaro",
+        "district": "Milano Nord-Ovest",
+        "aqi": 82,
+        "pm10": 41,
+        "pm25": 27,
+        "no2": 38,
+        "o3": 64,
+        "co": 0.7,
+        "co2": 512,
+        "pollutionLevel": "moderate",
+        "lastUpdate": "2026-07-24T10:30:00Z",
+        "trend": "up",
+        "populationExposure": 72000,
+        "riskLevel": "warning"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.117, 45.516],
+            [9.121, 45.508],
+            [9.132, 45.504],
+            [9.146, 45.506],
+            [9.154, 45.514],
+            [9.152, 45.524],
+            [9.141, 45.531],
+            [9.127, 45.529],
+            [9.118, 45.523],
+            [9.117, 45.516]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "certosa",
+        "name": "Certosa",
+        "district": "Milano Nord-Ovest",
+        "aqi": 124,
+        "pm10": 57,
+        "pm25": 36,
+        "no2": 49,
+        "o3": 70,
+        "co": 0.9,
+        "co2": 575,
+        "pollutionLevel": "high",
+        "lastUpdate": "2026-07-24T10:25:00Z",
+        "trend": "up",
+        "populationExposure": 54000,
+        "riskLevel": "warning"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.134, 45.501],
+            [9.141, 45.493],
+            [9.153, 45.49],
+            [9.168, 45.493],
+            [9.176, 45.501],
+            [9.171, 45.51],
+            [9.158, 45.515],
+            [9.144, 45.512],
+            [9.136, 45.507],
+            [9.134, 45.501]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "portello",
+        "name": "Portello",
+        "district": "Milano Nord-Ovest",
+        "aqi": 148,
+        "pm10": 68,
+        "pm25": 42,
+        "no2": 57,
+        "o3": 61,
+        "co": 1.1,
+        "co2": 642,
+        "pollutionLevel": "high",
+        "lastUpdate": "2026-07-24T10:20:00Z",
+        "trend": "stable",
+        "populationExposure": 46000,
+        "riskLevel": "warning"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.144, 45.486],
+            [9.15, 45.477],
+            [9.162, 45.474],
+            [9.174, 45.479],
+            [9.18, 45.488],
+            [9.174, 45.497],
+            [9.16, 45.499],
+            [9.149, 45.495],
+            [9.144, 45.486]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bovisa",
+        "name": "Bovisa",
+        "district": "Milano Nord",
+        "aqi": 133,
+        "pm10": 61,
+        "pm25": 39,
+        "no2": 52,
+        "o3": 67,
+        "co": 1.0,
+        "co2": 618,
+        "pollutionLevel": "high",
+        "lastUpdate": "2026-07-24T10:18:00Z",
+        "trend": "up",
+        "populationExposure": 38000,
+        "riskLevel": "warning"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.158, 45.506],
+            [9.164, 45.498],
+            [9.176, 45.494],
+            [9.189, 45.499],
+            [9.195, 45.509],
+            [9.188, 45.518],
+            [9.174, 45.52],
+            [9.163, 45.515],
+            [9.158, 45.506]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "cascina-merlata",
+        "name": "Cascina Merlata",
+        "district": "Milano Nord-Ovest",
+        "aqi": 58,
+        "pm10": 29,
+        "pm25": 18,
+        "no2": 24,
+        "o3": 72,
+        "co": 0.5,
+        "co2": 468,
+        "pollutionLevel": "moderate",
+        "lastUpdate": "2026-07-24T10:15:00Z",
+        "trend": "down",
+        "populationExposure": 28000,
+        "riskLevel": "attention"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.097, 45.515],
+            [9.103, 45.505],
+            [9.117, 45.501],
+            [9.13, 45.507],
+            [9.136, 45.518],
+            [9.128, 45.529],
+            [9.112, 45.532],
+            [9.101, 45.526],
+            [9.097, 45.515]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "gallaratese",
+        "name": "Gallaratese",
+        "district": "Milano Ovest",
+        "aqi": 76,
+        "pm10": 36,
+        "pm25": 23,
+        "no2": 32,
+        "o3": 66,
+        "co": 0.6,
+        "co2": 498,
+        "pollutionLevel": "moderate",
+        "lastUpdate": "2026-07-24T10:12:00Z",
+        "trend": "stable",
+        "populationExposure": 63000,
+        "riskLevel": "attention"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.104, 45.494],
+            [9.11, 45.482],
+            [9.124, 45.477],
+            [9.139, 45.482],
+            [9.146, 45.494],
+            [9.138, 45.505],
+            [9.122, 45.508],
+            [9.109, 45.503],
+            [9.104, 45.494]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "citylife",
+        "name": "CityLife",
+        "district": "Milano Centro-Ovest",
+        "aqi": 64,
+        "pm10": 31,
+        "pm25": 20,
+        "no2": 29,
+        "o3": 73,
+        "co": 0.5,
+        "co2": 482,
+        "pollutionLevel": "moderate",
+        "lastUpdate": "2026-07-24T10:10:00Z",
+        "trend": "down",
+        "populationExposure": 35000,
+        "riskLevel": "low"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.145, 45.475],
+            [9.151, 45.466],
+            [9.164, 45.463],
+            [9.176, 45.469],
+            [9.179, 45.48],
+            [9.17, 45.489],
+            [9.157, 45.489],
+            [9.147, 45.483],
+            [9.145, 45.475]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "centrale",
+        "name": "Centrale",
+        "district": "Milano Centro",
+        "aqi": 176,
+        "pm10": 79,
+        "pm25": 51,
+        "no2": 72,
+        "o3": 54,
+        "co": 1.4,
+        "co2": 735,
+        "pollutionLevel": "very-high",
+        "lastUpdate": "2026-07-24T10:28:00Z",
+        "trend": "up",
+        "populationExposure": 88000,
+        "riskLevel": "danger"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.19, 45.488],
+            [9.196, 45.479],
+            [9.21, 45.475],
+            [9.224, 45.481],
+            [9.227, 45.491],
+            [9.217, 45.5],
+            [9.202, 45.502],
+            [9.192, 45.497],
+            [9.19, 45.488]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "isola",
+        "name": "Isola",
+        "district": "Milano Nord",
+        "aqi": 96,
+        "pm10": 43,
+        "pm25": 28,
+        "no2": 39,
+        "o3": 69,
+        "co": 0.8,
+        "co2": 544,
+        "pollutionLevel": "moderate",
+        "lastUpdate": "2026-07-24T10:27:00Z",
+        "trend": "stable",
+        "populationExposure": 52000,
+        "riskLevel": "attention"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.178, 45.492],
+            [9.183, 45.484],
+            [9.194, 45.481],
+            [9.204, 45.486],
+            [9.207, 45.495],
+            [9.199, 45.502],
+            [9.187, 45.503],
+            [9.179, 45.499],
+            [9.178, 45.492]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "navigli",
+        "name": "Navigli",
+        "district": "Milano Sud",
+        "aqi": 72,
+        "pm10": 32,
+        "pm25": 21,
+        "no2": 30,
+        "o3": 81,
+        "co": 0.6,
+        "co2": 505,
+        "pollutionLevel": "moderate",
+        "lastUpdate": "2026-07-24T10:24:00Z",
+        "trend": "down",
+        "populationExposure": 58000,
+        "riskLevel": "attention"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.157, 45.448],
+            [9.164, 45.438],
+            [9.178, 45.435],
+            [9.192, 45.442],
+            [9.195, 45.453],
+            [9.185, 45.461],
+            [9.17, 45.462],
+            [9.16, 45.456],
+            [9.157, 45.448]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "porta-romana",
+        "name": "Porta Romana",
+        "district": "Milano Sud-Est",
+        "aqi": 154,
+        "pm10": 71,
+        "pm25": 46,
+        "no2": 62,
+        "o3": 58,
+        "co": 1.2,
+        "co2": 688,
+        "pollutionLevel": "very-high",
+        "lastUpdate": "2026-07-24T10:21:00Z",
+        "trend": "up",
+        "populationExposure": 69000,
+        "riskLevel": "danger"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.193, 45.454],
+            [9.2, 45.444],
+            [9.214, 45.44],
+            [9.227, 45.447],
+            [9.231, 45.459],
+            [9.22, 45.468],
+            [9.205, 45.469],
+            [9.195, 45.463],
+            [9.193, 45.454]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "lambrate",
+        "name": "Lambrate",
+        "district": "Milano Est",
+        "aqi": 112,
+        "pm10": 52,
+        "pm25": 34,
+        "no2": 48,
+        "o3": 62,
+        "co": 0.9,
+        "co2": 596,
+        "pollutionLevel": "high",
+        "lastUpdate": "2026-07-24T10:19:00Z",
+        "trend": "stable",
+        "populationExposure": 61000,
+        "riskLevel": "warning"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.232, 45.485],
+            [9.239, 45.473],
+            [9.254, 45.469],
+            [9.269, 45.476],
+            [9.273, 45.49],
+            [9.262, 45.5],
+            [9.245, 45.502],
+            [9.235, 45.496],
+            [9.232, 45.485]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "niguarda",
+        "name": "Niguarda",
+        "district": "Milano Nord",
+        "aqi": 88,
+        "pm10": 39,
+        "pm25": 25,
+        "no2": 35,
+        "o3": 70,
+        "co": 0.7,
+        "co2": 528,
+        "pollutionLevel": "moderate",
+        "lastUpdate": "2026-07-24T10:17:00Z",
+        "trend": "down",
+        "populationExposure": 57000,
+        "riskLevel": "attention"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.182, 45.522],
+            [9.189, 45.51],
+            [9.205, 45.506],
+            [9.221, 45.512],
+            [9.226, 45.526],
+            [9.216, 45.537],
+            [9.198, 45.54],
+            [9.186, 45.533],
+            [9.182, 45.522]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "san-siro",
+        "name": "San Siro",
+        "district": "Milano Ovest",
+        "aqi": 44,
+        "pm10": 21,
+        "pm25": 14,
+        "no2": 22,
+        "o3": 78,
+        "co": 0.4,
+        "co2": 442,
+        "pollutionLevel": "excellent",
+        "lastUpdate": "2026-07-24T10:16:00Z",
+        "trend": "down",
+        "populationExposure": 74000,
+        "riskLevel": "low"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.106, 45.474],
+            [9.114, 45.462],
+            [9.13, 45.458],
+            [9.147, 45.464],
+            [9.151, 45.478],
+            [9.14, 45.489],
+            [9.122, 45.491],
+            [9.11, 45.484],
+            [9.106, 45.474]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "bicocca",
+        "name": "Bicocca",
+        "district": "Milano Nord-Est",
+        "aqi": 104,
+        "pm10": 49,
+        "pm25": 31,
+        "no2": 42,
+        "o3": 65,
+        "co": 0.8,
+        "co2": 562,
+        "pollutionLevel": "high",
+        "lastUpdate": "2026-07-24T10:14:00Z",
+        "trend": "stable",
+        "populationExposure": 64000,
+        "riskLevel": "warning"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [9.198, 45.515],
+            [9.205, 45.504],
+            [9.221, 45.5],
+            [9.236, 45.507],
+            [9.24, 45.52],
+            [9.23, 45.531],
+            [9.212, 45.533],
+            [9.201, 45.526],
+            [9.198, 45.515]
+          ]
+        ]
+      }
+    }
+  ]
+}

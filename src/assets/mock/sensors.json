@@ -1,0 +1,42 @@
+[
+  {
+    "id": "sensor-portello-01",
+    "name": "Portello Nord",
+    "lat": 45.486,
+    "lng": 9.152,
+    "active": true,
+    "areaId": "portello",
+    "lastSignal": "2026-07-24T10:28:00Z",
+    "metrics": { "aqi": 118, "pm10": 55, "pm25": 32, "no2": 46 }
+  },
+  {
+    "id": "sensor-isola-01",
+    "name": "Isola Centro",
+    "lat": 45.487,
+    "lng": 9.191,
+    "active": true,
+    "areaId": "isola",
+    "lastSignal": "2026-07-24T10:27:00Z",
+    "metrics": { "aqi": 96, "pm10": 43, "pm25": 28, "no2": 39 }
+  },
+  {
+    "id": "sensor-navigli-01",
+    "name": "Navigli Sud",
+    "lat": 45.449,
+    "lng": 9.172,
+    "active": true,
+    "areaId": "navigli",
+    "lastSignal": "2026-07-24T10:25:00Z",
+    "metrics": { "aqi": 72, "pm10": 32, "pm25": 21, "no2": 30 }
+  },
+  {
+    "id": "sensor-bicocca-01",
+    "name": "Bicocca Campus",
+    "lat": 45.514,
+    "lng": 9.213,
+    "active": false,
+    "areaId": "bicocca",
+    "lastSignal": "2026-07-24T09:48:00Z",
+    "metrics": { "aqi": 104, "pm10": 49, "pm25": 31, "no2": 42 }
+  }
+]

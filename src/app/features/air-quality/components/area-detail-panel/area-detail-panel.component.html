@@ -1,0 +1,98 @@
+@if (area; as selectedArea) {
+  <section class="detail-panel" aria-labelledby="area-detail-title">
+    <header class="detail-header">
+      <div>
+        <p>{{ selectedArea.district }}</p>
+        <h2 id="area-detail-title">{{ selectedArea.name }}</h2>
+      </div>
+      <button
+        mat-icon-button
+        type="button"
+        (click)="closePanel.emit()"
+        [attr.aria-label]="'MAP.CLOSE' | translate"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </header>
+
+    <div class="aqi-summary">
+      <div>
+        <span>{{ 'AIR_QUALITY.AQI' | translate }}</span>
+        <strong>{{ selectedArea.aqi }}</strong>
+      </div>
+      <span class="quality-badge" [ngStyle]="getBadgeStyle(selectedArea.pollutionLevel)">{{
+        selectedArea.pollutionLevel | pollutionLevelLabel
+      }}</span>
+    </div>
+
+    <mat-divider />
+
+    <dl class="metric-grid">
+      <div>
+        <dt>{{ 'AIR_QUALITY.PM10' | translate }}</dt>
+        <dd>{{ selectedArea.pm10 }} ug/m3</dd>
+      </div>
+      <div>
+        <dt>{{ 'AIR_QUALITY.PM25' | translate }}</dt>
+        <dd>{{ selectedArea.pm25 }} ug/m3</dd>
+      </div>
+      <div>
+        <dt>{{ 'AIR_QUALITY.NO2' | translate }}</dt>
+        <dd>{{ selectedArea.no2 }} ug/m3</dd>
+      </div>
+      <div>
+        <dt>{{ 'AIR_QUALITY.O3' | translate }}</dt>
+        <dd>{{ selectedArea.o3 }} ug/m3</dd>
+      </div>
+      <div>
+        <dt>{{ 'AIR_QUALITY.CO' | translate }}</dt>
+        <dd>{{ selectedArea.co }} mg/m3</dd>
+      </div>
+      <div>
+        <dt>{{ 'AIR_QUALITY.TREND' | translate }}</dt>
+        <dd>{{ selectedArea.trend }}</dd>
+      </div>
+      <div>
+        <dt>{{ 'AIR_QUALITY.POPULATION_EXPOSURE' | translate }}</dt>
+        <dd>{{ selectedArea.populationExposure | number }}</dd>
+      </div>
+      <div>
+        <dt>{{ 'AIR_QUALITY.RISK_LEVEL' | translate }}</dt>
+        <dd>{{ selectedArea.riskLevel }}</dd>
+      </div>
+    </dl>
+
+    <p class="updated">
+      {{ 'AIR_QUALITY.LAST_UPDATE' | translate }}:
+      {{ selectedArea.lastUpdate | date: 'dd/MM/yyyy HH:mm' }}
+    </p>
+
+    <section class="history-card" [attr.aria-label]="'AIR_QUALITY.HISTORY_AQI' | translate">
+      <h3>{{ 'AIR_QUALITY.HISTORY_AQI' | translate }}</h3>
+      <app-metric-chart
+        [labels]="getChartLabels()"
+        [datasets]="getChartDatasets()"
+        [ariaLabel]="'AIR_QUALITY.HISTORY_AQI' | translate"
+      />
+    </section>
+
+    <div class="detail-actions">
+      <button mat-flat-button color="primary" type="button" (click)="analyze.emit(selectedArea)">
+        <mat-icon>analytics</mat-icon>
+        {{ 'MAP.ANALYZE_AREA' | translate }}
+      </button>
+      <button mat-stroked-button type="button" (click)="exportData.emit(selectedArea)">
+        <mat-icon>download</mat-icon>
+        {{ 'MAP.EXPORT_DATA' | translate }}
+      </button>
+      <button mat-button type="button" (click)="closePanel.emit()">
+        {{ 'MAP.CLOSE' | translate }}
+      </button>
+    </div>
+  </section>
+} @else {
+  <section class="empty-detail">
+    <mat-icon aria-hidden="true">travel_explore</mat-icon>
+    <p>{{ 'MAP.EMPTY' | translate }}</p>
+  </section>
+}

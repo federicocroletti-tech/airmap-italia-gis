@@ -1,0 +1,39 @@
+<section class="layer-panel" [class.compact]="compact" aria-labelledby="layer-panel-title">
+  <header class="panel-header">
+    <div>
+      <p class="eyebrow">{{ 'LAYERS.CARTOGRAPHIC_LAYERS' | translate }}</p>
+      <h2 id="layer-panel-title">{{ 'LAYERS.TITLE' | translate }}</h2>
+    </div>
+    <mat-icon aria-hidden="true">layers</mat-icon>
+  </header>
+
+  <div class="layer-list">
+    @for (layer of layers; track trackByLayerId($index, layer)) {
+      <article class="layer-row">
+        <div class="layer-main">
+          <mat-slide-toggle
+            [checked]="layer.visible"
+            (change)="layerToggled.emit({ layerId: layer.id, visible: $event.checked })"
+            [attr.aria-label]="layer.name"
+          >
+            {{ layer.labelKey ? (layer.labelKey | translate) : layer.name }}
+          </mat-slide-toggle>
+          <span class="layer-type">{{ getLayerTypeLabelKey(layer) | translate }}</span>
+        </div>
+
+        <label class="opacity-control">
+          <span>{{ 'LAYERS.OPACITY' | translate }} {{ layer.opacity | percent }}</span>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.05"
+            [value]="layer.opacity"
+            (input)="onOpacityInput(layer, $event)"
+            [attr.aria-label]="'LAYERS.OPACITY' | translate"
+          />
+        </label>
+      </article>
+    }
+  </div>
+</section>

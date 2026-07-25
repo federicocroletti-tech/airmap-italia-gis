@@ -1,0 +1,75 @@
+<section class="dashboard-page" aria-labelledby="dashboard-title">
+  <header class="page-header">
+    <div>
+      <p>{{ 'DASHBOARD.EYEBROW' | translate }}</p>
+      <h1 id="dashboard-title">{{ 'DASHBOARD.TITLE' | translate }}</h1>
+    </div>
+  </header>
+
+  @if (loading()) {
+    <div class="loading-state" role="status">
+      <mat-spinner diameter="36" /> {{ 'COMMON.LOADING' | translate }}
+    </div>
+  }
+
+  @if (data(); as dashboard) {
+    <section class="kpi-grid" [attr.aria-label]="'DASHBOARD.ARIA_KPIS' | translate">
+      @for (kpi of dashboard.kpis; track trackByKpiId($index, kpi)) {
+        <mat-card class="kpi-card" [class]="'status-' + kpi.status">
+          <mat-card-content>
+            <span>{{ kpi.labelKey | translate }}</span>
+            <strong>{{ kpi.value }}</strong>
+            <small>{{ kpi.helperKey ? (kpi.helperKey | translate) : kpi.helper }}</small>
+          </mat-card-content>
+        </mat-card>
+      }
+    </section>
+
+    <section class="chart-grid">
+      <mat-card class="chart-card wide">
+        <mat-card-header
+          ><mat-card-title>{{ 'DASHBOARD.AQI_24H' | translate }}</mat-card-title></mat-card-header
+        >
+        <mat-card-content>
+          <app-metric-chart
+            [labels]="getHistoricalLabels(dashboard)"
+            [datasets]="getHistoricalDatasets(dashboard)"
+            [ariaLabel]="'DASHBOARD.ARIA_HISTORY' | translate"
+          />
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="chart-card">
+        <mat-card-header
+          ><mat-card-title>{{
+            'DASHBOARD.DISTRICT_COMPARISON' | translate
+          }}</mat-card-title></mat-card-header
+        >
+        <mat-card-content>
+          <app-metric-chart
+            chartType="bar"
+            [labels]="getComparisonLabels(dashboard)"
+            [datasets]="getComparisonDatasets(dashboard)"
+            [ariaLabel]="'DASHBOARD.ARIA_COMPARISON' | translate"
+          />
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="chart-card">
+        <mat-card-header
+          ><mat-card-title>{{
+            'DASHBOARD.DISTRIBUTION' | translate
+          }}</mat-card-title></mat-card-header
+        >
+        <mat-card-content>
+          <app-metric-chart
+            chartType="doughnut"
+            [labels]="getDistributionLabels(dashboard)"
+            [datasets]="getDistributionDatasets(dashboard)"
+            [ariaLabel]="'DASHBOARD.ARIA_DISTRIBUTION' | translate"
+          />
+        </mat-card-content>
+      </mat-card>
+    </section>
+  }
+</section>

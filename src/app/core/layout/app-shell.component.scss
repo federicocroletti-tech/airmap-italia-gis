@@ -1,0 +1,114 @@
+.shell {
+  min-height: 100vh;
+}
+
+.side-nav {
+  background: var(--airmap-nav-bg);
+  border-right: 1px solid var(--airmap-border);
+  width: 17rem;
+}
+
+.brand {
+  align-items: center;
+  color: var(--airmap-text);
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.2rem;
+  text-decoration: none;
+}
+
+.brand-mark {
+  background: var(--airmap-primary);
+  border-radius: 8px;
+  color: #fff;
+  display: grid;
+  font-family: var(--airmap-display-font);
+  font-weight: 800;
+  height: 2.5rem;
+  place-items: center;
+  width: 2.5rem;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand small {
+  color: var(--airmap-muted);
+  font-size: 0.72rem;
+  margin-top: 0.15rem;
+}
+
+.active-link {
+  background: color-mix(in srgb, var(--airmap-primary) 14%, transparent);
+  color: var(--airmap-primary);
+}
+
+.topbar {
+  background: var(--airmap-toolbar-bg);
+  border-bottom: 1px solid var(--airmap-border);
+  color: var(--airmap-text);
+  min-height: 4rem;
+  position: sticky;
+  top: 0;
+  z-index: 700;
+}
+
+.topbar-title span,
+.topbar-title small {
+  display: block;
+}
+
+.topbar-title span {
+  font-family: var(--airmap-display-font);
+  font-weight: 800;
+}
+
+.topbar-title small {
+  color: var(--airmap-muted);
+  font-size: 0.72rem;
+}
+
+.toolbar-spacer {
+  flex: 1;
+}
+
+.content-shell {
+  background: var(--airmap-app-bg);
+  min-height: calc(100vh - 8rem);
+  padding: 1.25rem;
+}
+
+.app-footer {
+  align-items: center;
+  background: var(--airmap-toolbar-bg);
+  border-top: 1px solid var(--airmap-border);
+  color: var(--airmap-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+}
+
+.app-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.app-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .side-nav {
+    display: none;
+  }
+
+  .content-shell {
+    padding: 0.75rem;
+  }
+}

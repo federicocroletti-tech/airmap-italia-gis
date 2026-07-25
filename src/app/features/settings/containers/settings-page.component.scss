@@ -1,0 +1,24 @@
+.settings-page {
+  display: grid;
+  gap: 1rem;
+  max-width: 62rem;
+}
+
+header p {
+  color: var(--airmap-muted);
+  margin: 0 0 0.25rem;
+}
+
+h1 {
+  font-family: var(--airmap-display-font);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin: 0;
+}
+
+mat-card {
+  border-radius: 8px;
+}
+
+mat-button-toggle mat-icon {
+  margin-right: 0.35rem;
+}

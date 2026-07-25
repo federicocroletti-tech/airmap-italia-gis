@@ -1,0 +1,78 @@
+<mat-sidenav-container class="shell">
+  <mat-sidenav class="side-nav" [opened]="true" mode="side">
+    <a class="brand" routerLink="/map" aria-label="AIRMAP ITALIA home">
+      <span class="brand-mark">AI</span>
+      <span
+        ><strong>{{ 'APP.TITLE' | translate }}</strong
+        ><small>{{ 'APP.SUBTITLE' | translate }}</small></span
+      >
+    </a>
+
+    <mat-nav-list aria-label="Navigazione principale">
+      @for (item of navItems; track trackByPath($index, item)) {
+        <a
+          mat-list-item
+          [routerLink]="item.path"
+          routerLinkActive="active-link"
+          (click)="closeMobileNav()"
+        >
+          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+          <span matListItemTitle>{{ item.labelKey | translate }}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="topbar">
+      <div class="topbar-title">
+        <span>{{ 'APP.TITLE' | translate }}</span>
+        <small>{{ 'MAP.MILAN_AQI_GIS' | translate }}</small>
+      </div>
+
+      <span class="toolbar-spacer"></span>
+
+      <button
+        mat-icon-button
+        type="button"
+        (click)="toggleTheme()"
+        [attr.aria-label]="theme() === 'dark' ? 'Tema chiaro' : 'Tema scuro'"
+      >
+        <mat-icon>{{ theme() === 'dark' ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      </button>
+
+      <button
+        mat-icon-button
+        type="button"
+        [matMenuTriggerFor]="languageMenu"
+        aria-label="Cambia lingua"
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+      <mat-menu #languageMenu="matMenu">
+        <button mat-menu-item type="button" (click)="setLanguage('it')">
+          {{ 'SETTINGS.ITALIAN' | translate }}
+        </button>
+        <button mat-menu-item type="button" (click)="setLanguage('en')">
+          {{ 'SETTINGS.ENGLISH' | translate }}
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+
+    <main class="content-shell">
+      <router-outlet />
+    </main>
+
+    <footer class="app-footer">
+      <span>Federico Croletti</span>
+      <nav aria-label="Link legali">
+        <a routerLink="/privacy-policy">{{ 'LEGAL.PRIVACY' | translate }}</a>
+        <a routerLink="/cookie-policy">{{ 'LEGAL.COOKIE' | translate }}</a>
+        <a routerLink="/termini-servizio">{{ 'LEGAL.TERMS' | translate }}</a>
+        <a href="mailto:info@example.com">{{ 'APP.CONTACTS' | translate }}</a>
+      </nav>
+    </footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<app-cookie-banner />

@@ -1,0 +1,108 @@
+@use '@angular/material' as mat;
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@include mat.core();
+
+:root,
+.light-theme {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$blue-palette,
+        tertiary: mat.$green-palette,
+      ),
+      density: 0,
+    )
+  );
+
+  --airmap-app-bg: #f4f7fa;
+  --airmap-nav-bg: #eef4f7;
+  --airmap-toolbar-bg: #ffffff;
+  --airmap-panel-bg: #ffffff;
+  --airmap-soft-bg: #eef5f7;
+  --airmap-map-bg: #dce8ed;
+  --airmap-tooltip-bg: #ffffff;
+  --airmap-text: #122033;
+  --airmap-muted: #5d6d7f;
+  --airmap-border: #d8e2eb;
+  --airmap-primary: #176b87;
+  --airmap-chip-bg: #e4edf2;
+  --airmap-panel-shadow: 0 18px 50px rgba(18, 32, 51, 0.14);
+  --airmap-display-font: 'Bahnschrift', 'Aptos', sans-serif;
+  color-scheme: light;
+}
+
+.dark-theme {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: dark,
+        primary: mat.$cyan-palette,
+        tertiary: mat.$green-palette,
+      ),
+      density: 0,
+    )
+  );
+
+  --airmap-app-bg: #101820;
+  --airmap-nav-bg: #121d26;
+  --airmap-toolbar-bg: #14212c;
+  --airmap-panel-bg: #182631;
+  --airmap-soft-bg: #20313d;
+  --airmap-map-bg: #1a2730;
+  --airmap-tooltip-bg: #17242f;
+  --airmap-text: #eef6f8;
+  --airmap-muted: #a8b8c4;
+  --airmap-border: #2c4352;
+  --airmap-primary: #6cc4d9;
+  --airmap-chip-bg: #223642;
+  --airmap-panel-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--airmap-app-bg);
+  color: var(--airmap-text);
+  font-family: 'Aptos', 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus-visible,
+.focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--airmap-primary) 72%, white);
+  outline-offset: 3px;
+}
+
+.material-icons-round,
+mat-icon {
+  font-family: 'Material Icons Round';
+  font-feature-settings: 'liga';
+}
+
+.leaflet-container {
+  background: var(--airmap-map-bg);
+  color: var(--airmap-text);
+  font-family: 'Aptos', 'Segoe UI', sans-serif;
+}
+
+.dark-theme .leaflet-tile-pane {
+  filter: brightness(0.78) contrast(1.08) saturate(0.82);
+}
+
+a {
+  color: var(--airmap-primary);
+}

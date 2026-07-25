@@ -1,0 +1,23 @@
+[
+  {
+    "id": "air-quality-zones",
+    "name": "Zone qualità aria",
+    "labelKey": "LAYERS.AIR_QUALITY_ZONES",
+    "type": "geojson",
+    "metricKey": "aqi",
+    "visible": true,
+    "opacity": 0.72,
+    "configurable": false,
+    "description": "Poligoni urbani tematizzati per indice AQI"
+  },
+  {
+    "id": "sensors",
+    "name": "Centraline ambientali",
+    "labelKey": "LAYERS.MONITORING_STATIONS",
+    "type": "markers",
+    "visible": true,
+    "opacity": 1,
+    "configurable": false,
+    "description": "Punti di misura e sensori ambientali"
+  }
+]

@@ -1,0 +1,127 @@
+{
+  "kpis": [
+    {
+      "id": "avg-aqi",
+      "labelKey": "DASHBOARD.AVG_AQI",
+      "value": 101,
+      "helperKey": "DASHBOARD.HELPER_AVG_AQI",
+      "helper": "Media urbana campione",
+      "status": "warning"
+    },
+    {
+      "id": "best-area",
+      "labelKey": "DASHBOARD.BEST_AREA",
+      "value": "San Siro",
+      "helper": "AQI 44",
+      "status": "good"
+    },
+    {
+      "id": "worst-area",
+      "labelKey": "DASHBOARD.WORST_AREA",
+      "value": "Centrale",
+      "helper": "AQI 176",
+      "status": "danger"
+    },
+    {
+      "id": "critical-zones",
+      "labelKey": "DASHBOARD.CRITICAL_ZONES",
+      "value": 2,
+      "helperKey": "DASHBOARD.HELPER_CRITICAL_ZONES",
+      "helper": "AQI superiore a 150",
+      "status": "warning"
+    },
+    {
+      "id": "last-update",
+      "labelKey": "DASHBOARD.LAST_UPDATE",
+      "value": "2026-07-24T10:30:00Z",
+      "helperKey": "DASHBOARD.HELPER_LAST_UPDATE",
+      "helper": "Dato piu recente",
+      "status": "neutral"
+    }
+  ],
+  "historicalMetrics": [
+    {
+      "timestamp": "2026-07-23T11:30:00Z",
+      "aqi": 78,
+      "pm10": 36,
+      "pm25": 23,
+      "no2": 32,
+      "o3": 52,
+      "co": 0.6,
+      "co2": 482
+    },
+    {
+      "timestamp": "2026-07-23T15:30:00Z",
+      "aqi": 94,
+      "pm10": 43,
+      "pm25": 27,
+      "no2": 38,
+      "o3": 68,
+      "co": 0.8,
+      "co2": 526
+    },
+    {
+      "timestamp": "2026-07-23T19:30:00Z",
+      "aqi": 126,
+      "pm10": 59,
+      "pm25": 37,
+      "no2": 54,
+      "o3": 61,
+      "co": 1.0,
+      "co2": 614
+    },
+    {
+      "timestamp": "2026-07-23T23:30:00Z",
+      "aqi": 102,
+      "pm10": 48,
+      "pm25": 31,
+      "no2": 43,
+      "o3": 55,
+      "co": 0.8,
+      "co2": 556
+    },
+    {
+      "timestamp": "2026-07-24T03:30:00Z",
+      "aqi": 81,
+      "pm10": 37,
+      "pm25": 24,
+      "no2": 33,
+      "o3": 47,
+      "co": 0.7,
+      "co2": 492
+    },
+    {
+      "timestamp": "2026-07-24T07:30:00Z",
+      "aqi": 138,
+      "pm10": 64,
+      "pm25": 40,
+      "no2": 58,
+      "o3": 51,
+      "co": 1.1,
+      "co2": 646
+    },
+    {
+      "timestamp": "2026-07-24T10:30:00Z",
+      "aqi": 101,
+      "pm10": 47,
+      "pm25": 30,
+      "no2": 42,
+      "o3": 64,
+      "co": 0.8,
+      "co2": 552
+    }
+  ],
+  "districtComparison": [
+    { "district": "Centrale", "aqi": 176 },
+    { "district": "Porta Romana", "aqi": 154 },
+    { "district": "Portello", "aqi": 148 },
+    { "district": "Bovisa", "aqi": 133 },
+    { "district": "San Siro", "aqi": 44 }
+  ],
+  "pollutionDistribution": [
+    { "level": "excellent", "count": 1 },
+    { "level": "moderate", "count": 7 },
+    { "level": "high", "count": 5 },
+    { "level": "very-high", "count": 2 }
+  ]
+}

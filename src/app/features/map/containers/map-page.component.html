@@ -1,0 +1,50 @@
+<mat-drawer-container class="map-page" autosize>
+  <mat-drawer
+    class="detail-drawer"
+    position="end"
+    mode="over"
+    [opened]="hasSelectedArea()"
+    (closedStart)="closeDetails()"
+  >
+    <app-area-detail-panel
+      [area]="selectedArea()"
+      [history]="selectedAreaHistory()"
+      (closePanel)="closeDetails()"
+      (analyze)="analyzeArea($event)"
+      (exportData)="exportArea($event)"
+    />
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <section class="map-workspace">
+      <aside class="control-rail" aria-label="Controlli mappa">
+        <app-map-search [areas]="areas()" (areaSelected)="selectArea($event)" />
+        <app-layer-panel
+          [layers]="layers()"
+          [compact]="true"
+          (layerToggled)="updateLayer($event)"
+          (opacityChanged)="updateOpacity($event)"
+        />
+      </aside>
+
+      <div class="map-stage">
+        @if (loading()) {
+          <div class="loading-overlay" role="status">
+            <mat-spinner diameter="36" />
+            <span>{{ 'COMMON.LOADING' | translate }}</span>
+          </div>
+        }
+
+        <app-map-view
+          [areas]="areas()"
+          [layers]="layers()"
+          [sensors]="sensors()"
+          [selectedArea]="selectedArea()"
+          (areaSelected)="selectArea($event)"
+          (zoomChanged)="updateZoom($event)"
+          (centerChanged)="updateCenter($event)"
+        />
+      </div>
+    </section>
+  </mat-drawer-content>
+</mat-drawer-container>

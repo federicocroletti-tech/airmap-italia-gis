@@ -1,0 +1,19 @@
+<mat-form-field class="search-field" appearance="outline">
+  <mat-label>{{ 'MAP.SEARCH' | translate }}</mat-label>
+  <mat-icon matPrefix aria-hidden="true">search</mat-icon>
+  <input
+    matInput
+    type="search"
+    [formControl]="searchControl"
+    [matAutocomplete]="areaAutocomplete"
+    [attr.aria-label]="'MAP.SEARCH' | translate"
+  />
+  <mat-autocomplete #areaAutocomplete="matAutocomplete">
+    @for (area of results(); track trackByAreaId($index, area)) {
+      <mat-option [value]="area.name" (onSelectionChange)="$event.isUserInput && selectArea(area)">
+        <span>{{ area.name }}</span>
+        <small>AQI {{ area.aqi }} · {{ area.district }}</small>
+      </mat-option>
+    }
+  </mat-autocomplete>
+</mat-form-field>
