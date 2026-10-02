@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: airmap-italia-gis
+    runtime: static
+    plan: free
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist/airmap-italia-gis/browser
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
