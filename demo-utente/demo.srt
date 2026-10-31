@@ -1,0 +1,25 @@
+1
+00:00:00,000 --> 00:00:04,950
+AirMap Italia: partiamo dalla mappa di Milano.
+
+2
+00:00:04,950 --> 00:00:09,900
+Cerchiamo il quartiere Centrale e selezioniamolo tra i risultati.
+
+3
+00:00:09,900 --> 00:00:14,850
+Nel dettaglio leggiamo l'indice AQI e gli indicatori:
+PM10, PM2.5 e NO2.
+
+4
+00:00:14,850 --> 00:00:19,800
+Il grafico mostra lo storico dimostrativo.
+
+5
+00:00:19,800 --> 00:00:24,750
+Con Analizza area passiamo ai ranking e confrontiamo le zone.
+
+6
+00:00:24,750 --> 00:00:30,250
+Sono dati di esempio, non aggiornati in tempo reale.
+AirMap: esplorare i dati, capire il territorio.
