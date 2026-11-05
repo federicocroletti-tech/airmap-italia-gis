@@ -4,17 +4,18 @@ Ultimo controllo: 5 novembre 2026. Questa è una verifica tecnica e UX prelimina
 
 ## Stato attuale
 
-**La versione corretta è committata e pushata sul branch demo, ma non è ancora stata osservata live su Render.** Build, test, audit npm, scansione CVE e probe HTTP sulla copia pulita sono superati. L'utente ha approvato informative provvisorie da demo, indicato il recapito `federico.croletti@gmail.com`, confermato il regime proprietario attuale e chiesto la pubblicazione su Render. Il runner di validazione MCP continua a scadere durante l'installazione, prima delle asserzioni; i controlli equivalenti sono stati eseguiti manualmente.
+**La versione corretta è committata e pushata sul branch demo; l'istanza Render dedicata non è stata creata.** Build, test, audit npm, scansione CVE e probe HTTP sulla copia pulita sono superati. L'utente ha approvato informative provvisorie da demo, indicato il recapito `federico.croletti@gmail.com`, confermato il regime proprietario attuale e chiesto una nuova istanza Render separata da `main`. Il runner di validazione MCP continua a scadere durante l'installazione, prima delle asserzioni; i controlli equivalenti sono stati eseguiti manualmente.
 
-Il commit `b948adff985346bc3b44040494c476f5d72014fd` è pushato su `demo/airmap-italia-gis`. Il deploy live non è confermato: la URL Render risponde 200 ma continua a servire la vecchia traduzione. Non pushare su `main` né cambiare la configurazione Render senza conferma del branch collegato o accesso al servizio.
+Il codice applicativo è nel commit `b948adff985346bc3b44040494c476f5d72014fd`; il checkpoint aggiornato è nel commit `68176f1`, entrambi pushati su `demo/airmap-italia-gis`. Il servizio Render esistente è collegato a `main` e serve il commit `d4b666d`; non è stato modificato. La dashboard disabilita la creazione di un nuovo sito statico e la marca `Pro` (il progetto mostra inoltre `25/25`): non è stata avviata una nuova istanza né un upgrade a pagamento.
 
 ## Baseline e stato Git
 
 - Repository: `federicocroletti-tech/airmap-italia-gis`.
 - Branch: `demo/airmap-italia-gis`.
-- HEAD: `b948adff985346bc3b44040494c476f5d72014fd` (`Prepare Airmap demo release and remediate dependencies`); `origin/demo/airmap-italia-gis` coincide con HEAD.
+- HEAD: `68176f1` (`Document Render deployment blocker`); `origin/demo/airmap-italia-gis` coincide con HEAD. Il commit del codice applicativo è `b948adf` (`Prepare Airmap demo release and remediate dependencies`).
 - `main` resta a `d4b666dfa285af0e7df29f6ffe1e93c845d629ce`. Non fare push su `main`.
-- Il codice e la documentazione della remediation sono nel commit pushato. Aggiornare questo checkpoint quando si conosce il branch collegato al servizio Render e si verifica il deploy.
+- Il servizio Render esistente `airmap-italia-gis` è collegato al repository `federicocroletti-tech/airmap-italia-gis`, branch `main`; l'ultimo deploy riuscito punta a `d4b666d`. Lasciarlo invariato.
+- La nuova istanza dedicata dal branch `demo/airmap-italia-gis` non è stata creata: l'opzione `Static Site` nella dashboard è disabilitata e marcata `Pro`, e il progetto segnala `25/25`. Serve una scelta dell'utente su upgrade/costi o hosting alternativo.
 - Aggiunto `.tsupgrader/runtime-validation/eval-plan.json` per ripetere installazione, build, test e probe HTTP; usa il probe come fallback perché la registrazione Playwright non è riuscita.
 
 ## Modifiche applicate in questo ciclo
@@ -48,16 +49,16 @@ Il commit `b948adff985346bc3b44040494c476f5d72014fd` è pushato su `demo/airmap-
 | Navigazione mobile | ✅ | Link a Mappa, Dashboard, Analytics, Layer e Impostazioni visibili; tutte e quattro le route secondarie aperte e heading verificato. |
 | Flusso di ricerca | ✅ | Ricerca “Centrale”, selezione risultato, apertura dettaglio; dettaglio senza popolazione esposta o rischio sanitario. |
 | Analytics e lingua | ✅ | Route Analytics caricata senza colonne di rischio/esposizione; avviso inglese controllato. |
-| Preview Render esistente | ⚠️ vecchia versione live | `https://airmap-italia-gis.onrender.com/` risponde HTTP 200 ma serve ancora la vecchia traduzione in 36 tentativi distribuiti su 6 minuti dopo il push. Il branch configurato nel servizio non è esposto in `render.yaml`; serve verificarlo nel dashboard Render prima di intervenire. |
+| Preview Render esistente | ⚠️ vecchia versione live | `https://airmap-italia-gis.onrender.com/` risponde HTTP 200 ma serve ancora la vecchia traduzione. Dashboard: servizio collegato a `main`, ultimo deploy riuscito `d4b666d`; la nuova istanza demo non è stata creata. |
 | Screenshot/video | ➖ | Nessun file definitivo o video creato. |
 | `git diff --check` | ✅ | Superato dopo le modifiche documentali e l’aggiunta del piano runtime. |
 
 Il probe HTTP è stato eseguito sulla build di produzione della copia corretta; non equivale a una verifica browser visuale né alla verifica del deployment live.
 
-## Blocchi prima di commit remoto o deploy pubblico
+## Blocchi per completare il deploy dedicato
 
 1. **Limite legale intenzionale:** le pagine sono informative e provvisorie per una demo, non costituiscono documenti legali né attestano conformità. Non promuovere la demo come servizio operativo.
-2. **Render:** il commit è già pushato solo su `demo/airmap-italia-gis`, ma il sito serve ancora la vecchia build. Il branch collegato al servizio non è esposto in `render.yaml`; chiedere conferma del branch o accesso al dashboard prima di cambiare l'impostazione o avviare un deploy manuale.
+2. **Render:** il servizio esistente usa `main` e deve restare intatto. Creare un servizio separato dal branch demo richiede un'abilitazione/upgrade Render: la dashboard mostra `Static Site` disabilitato con etichetta `Pro` e `25/25`. Non è stato fatto alcun upgrade né sostenuto alcun costo. Attendere una scelta esplicita dell'utente su piano/costo o su un provider alternativo.
 3. **Copertura e browser:** 4 unit test e probe HTTP passano; i flussi UI sono coperti solo da verifiche manuali precedenti, perché Playwright/CDP non è disponibile in questo ambiente.
 4. **Runtime MCP:** il runner continua a scadere sull'installazione anche quando `npm ci`, build, test, audit e probe manuali passano. Non cambiare i controlli per forzare un pass.
 
@@ -67,9 +68,9 @@ La demo può essere pubblicata con le avvertenze esplicite approvate dall'utente
 
 - Lint dedicato; audit screen reader, contrasto sistematico, tastiera completa o zoom al 200%.
 - Screen reader, audit sistematico di contrasto, tastiera completa o zoom al 200%.
-- Deploy Render e verifica del bundle/pagine live aggiornati.
+- Creazione e deploy della nuova istanza Render dedicata; verifica del bundle/pagine live aggiornati.
 - Screenshot/video.
 
 ## Ripresa: un solo prossimo passo
 
-**Completare la pubblicazione**: identificare il branch collegato al servizio Render (o ottenere accesso al dashboard), quindi avviare il deploy del commit `b948adf` sul solo branch demo e verificare che la URL serva il nuovo bundle, l'avviso browser e le pagine informative. Non promuovere a `main` né cambiare branch senza conferma esplicita.
+**Completare la pubblicazione senza toccare `main`**: attendere che l'utente abiliti un piano Render che consenta un secondo static site (con costo massimo esplicito) oppure scelga un provider alternativo. Quindi creare `airmap-italia-gis-demo` dal branch `demo/airmap-italia-gis` e verificare che la nuova URL serva il commit `b948adf`, l'avviso browser e le pagine informative.
