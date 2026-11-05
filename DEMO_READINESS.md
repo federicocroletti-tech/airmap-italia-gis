@@ -4,12 +4,12 @@ Ultimo controllo: 5 novembre 2026. Questa è una verifica tecnica e UX prelimina
 
 ## Stato attuale
 
-**Demo pubblicata su GitHub Pages:** `https://federicocroletti-tech.github.io/airmap-italia-gis/`. Il commit live precedente `ba4d2f2` caricava correttamente l'app, ma gli accessi diretti alle route secondarie rispondevano HTTP 404. Preparato un fix del workflow per generare entry point statici; build e test passano, e il probe HTTP della copia pubblicata localmente restituisce 200 per home, tutte le 8 route e le risorse. Il fix va committato, pubblicato e verificato sul dominio. `main` e il servizio Render esistente restano invariati.
+**Demo pubblicata e verificata su GitHub Pages:** `https://federicocroletti-tech.github.io/airmap-italia-gis/`. Il commit `cac28a3` crea entry point statici per le route Angular; il run Actions `42093955591` ha completato build e deploy. Verificati dal browser live status HTTP 200 e rendering delle 8 route (Mappa, Dashboard, Analytics, Layer, Impostazioni e tre pagine informative), oltre a tutte le risorse i18n e mock. `main` e il servizio Render esistente restano invariati.
 
 ## Baseline e stato Git
 
 - Repository: `federicocroletti-tech/airmap-italia-gis`.
-- Branch: `demo/airmap-italia-gis`; ultimo deploy verificato `ba4d2f2` (`Record successful GitHub Pages deployment`); il fix HTTP 200 delle route è in corso nel worktree.
+- Branch: `demo/airmap-italia-gis`; commit del fix `cac28a3` (`Serve Angular routes directly on GitHub Pages`).
 - Commit applicativo precedente: `b948adf` (`Prepare Airmap demo release and remediate dependencies`); setup Pages in `e6829f6`.
 - `main` resta a `d4b666dfa285af0e7df29f6ffe1e93c845d629ce`. Non fare push su `main`.
 - Il servizio Render esistente `airmap-italia-gis` è collegato al repository `federicocroletti-tech/airmap-italia-gis`, branch `main`; l'ultimo deploy riuscito punta a `d4b666d`. Lasciarlo invariato.
@@ -33,7 +33,7 @@ Ultimo controllo: 5 novembre 2026. Questa è una verifica tecnica e UX prelimina
 - Aggiunto `.github/workflows/deploy-demo-pages.yml`, limitato ai push su `demo/airmap-italia-gis`; il workflow compila con il base path del repository, prepara il fallback SPA `404.html` e pubblica con GitHub Pages.
 - Il primo controllo browser ha rilevato che prefix `/assets/...` puntavano alla root del dominio. Resi relativi il prefix i18n e gli URL dei mock in entrambi gli environment; così si risolvono rispetto al `<base href>` Pages senza alterare l'hosting alla root.
 - Configurata la protezione GitHub Actions dell'ambiente `github-pages` per autorizzare solo il branch `demo/airmap-italia-gis`.
-- In corso l'aggiunta di file `index.html` statici per ogni route applicativa, così GitHub Pages risponde HTTP 200 direttamente invece di affidarsi solo alla risposta 404.html.
+- Aggiunti file `index.html` statici per ogni route applicativa, così GitHub Pages risponde HTTP 200 direttamente; il deploy `cac28a3` è verificato live.
 
 ## Verifiche eseguite dopo le modifiche
 
@@ -44,11 +44,11 @@ Ultimo controllo: 5 novembre 2026. Questa è una verifica tecnica e UX prelimina
 | Test unitari | ✅ | `npm test -- --watch=false --isolate=false`: 2 file, 4 test passati, inclusa persistenza dell'avviso browser. |
 | NPM audit | ✅ | `npm audit`: zero vulnerabilità nell'intero lockfile dopo gli aggiornamenti. |
 | Scansione CVE | ✅ | Prima scansione: 81 finding. Dopo aggiornamenti: zero finding noti nelle dipendenze individuate come interessate; report iniziale/finale e riepilogo in `.tsupgrader/`. |
-| Probe HTTP della build pulita | ✅ storico | Il precedente server locale di test rispondeva 200 alle route SPA; su Pages le richieste dirette alle route usano invece `404.html` e riportano HTTP 404. |
+| Probe HTTP della build pulita | ✅ storico | Il server locale di test risponde 200 alle route SPA. Il precedente deploy Pages, senza entry point statici, restituiva 404 sulle route dirette; ora corretto e verificato live sotto. |
 | Runtime validation MCP | ⚠️ | Una precedente esecuzione standalone è passata (build, 4 test, audit, probe home). Il rerun dopo la correzione è stato bloccato durante `npm ci` da `EBUSY` su `node_modules` utilizzato dal server locale condiviso; non è stato terminato. Il report corrente è in `.tsupgrader/runtime-validation/standalone-result.json`. |
 | Build Pages isolata dopo fix | ✅ | Copia temporanea pulita: `npm ci --legacy-peer-deps` (383 pacchetti, zero vulnerabilità), build con `--base-href /airmap-italia-gis/` (474,77 kB iniziali), 4/4 test. Verificata presenza di `assets/i18n/it.json`, mock GeoJSON e `<base href="/airmap-italia-gis/">` nell'output. |
 | Probe route statiche locale | ✅ | Build isolata modificata come il workflow: HTTP 200 su `/`, `/map`, `/dashboard`, `/analytics`, `/layers`, `/settings`, `/privacy-policy`, `/cookie-policy`, `/termini-servizio` e su tutte le 7 risorse mock/i18n. |
-| Browser GitHub Pages live precedente | ⚠️ | L'app, traduzioni e assets caricano; richieste dirette alle route secondarie rispondono HTTP 404 pur renderizzando la vista via `404.html`. Gli entry point statici sono pronti; lo status 200 live va verificato dopo il deploy. |
+| Browser GitHub Pages | ✅ | URL aperto direttamente per tutte le 8 route: HTTP 200 e contenuto applicativo non vuoto. Verificati anche gli heading/contenuti di ciascuna route e assenza di chiavi i18n non risolte. |
 | Asset live GitHub Pages | ✅ | Traduzioni IT/EN, GeoJSON, layer, sensori, storico AQI e riepilogo dashboard: tutte le 7 richieste `assets/...` rispondono HTTP 200. |
 | Dati mock | ✅ strutturali | 15 poligoni, 4 sensori, 2 layer, 7 punti storici, 5 KPI; JSON valido, coordinate e geometrie controllate; nessun campo `populationExposure`/`riskLevel` nelle feature. Non è una validazione scientifica. |
 | Traduzioni | ✅ | 127 chiavi in ciascun file IT/EN, nessuna chiave mancante; disclosure presente in entrambe. |
@@ -58,18 +58,18 @@ Ultimo controllo: 5 novembre 2026. Questa è una verifica tecnica e UX prelimina
 | Analytics e lingua | ✅ | Route Analytics caricata senza colonne di rischio/esposizione; avviso inglese controllato. |
 | Preview Render esistente | ⚠️ vecchia versione live | `https://airmap-italia-gis.onrender.com/` risponde HTTP 200 ma serve ancora la vecchia traduzione. Dashboard: servizio collegato a `main`, ultimo deploy riuscito `d4b666d`; resta invariato. |
 | GitHub Pages - build isolata | ✅ | In copia pulita: `npm ci --legacy-peer-deps` (383 pacchetti, zero vulnerabilità), `npm run build -- --base-href /airmap-italia-gis/` superato; base path e copia `index.html` → `404.html` verificati. |
-| GitHub Pages - workflow | ✅ | Run finale `42076907953` (commit `4d3476c`) completato con build e deploy riusciti. Il primo blocco di protezione branch è stato corretto autorizzando solo il branch demo. |
-| GitHub Pages - route dirette HTTP 200 | ⏳ | Workflow aggiornato localmente per creare file statici per tutte le route Angular; probe locale superato. Confermare gli status 200 via browser sul deploy. |
+| GitHub Pages - workflow | ✅ | Run finale `42093955591` (commit `cac28a3`) completato con build e deploy riusciti. Il primo blocco di protezione branch è stato corretto autorizzando solo il branch demo. |
+| GitHub Pages - route dirette HTTP 200 | ✅ | Commit `cac28a3`, workflow run `42093955591`: tutte le 8 route restituiscono HTTP 200 dal dominio pubblicato e renderizzano i contenuti corretti. |
 | Screenshot/video | ➖ | Nessun file definitivo o video creato. |
 | `git diff --check` | ✅ | Superato dopo le modifiche documentali e l’aggiunta del piano runtime. |
 
-Il probe del deploy live ha mostrato che il semplice fallback `404.html` renderizzava la vista ma non eliminava lo status HTTP 404 delle route dirette. Il workflow ora genera un `index.html` per ciascuna route; la build è stata controllata con probe HTTP locale positivo, resta da verificare il prossimo run live.
+Il deploy live ora genera un `index.html` statico per ciascuna route, mantenendo `404.html` per percorsi sconosciuti. Richieste dirette HTTP 200 e rendering live sono verificati per tutte le route conosciute.
 
 ## Stato deploy
 
 1. **Limite legale intenzionale:** le pagine sono informative e provvisorie per una demo, non costituiscono documenti legali né attestano conformità. Non promuovere la demo come servizio operativo.
 2. **Render:** il servizio esistente usa `main` e deve restare intatto. Un secondo Static Site Render non è disponibile senza piano Pro; non è stato fatto alcun upgrade né sostenuto alcun costo. Per la demo è stato scelto GitHub Pages, gratuito per questo repository pubblico.
-3. **Copertura e browser:** 4 unit test e probe HTTP statico passano in una copia pulita isolata: tutte le route e le risorse rispondono 200. Il runtime validator MCP ha una limitazione ambientale nel reinstallare dipendenze in `node_modules` bloccati dal server locale condiviso; non interrompere quel server.
+3. **Copertura e browser:** 4 unit test, build Pages pulita, probe HTTP statico e navigazione browser live passano. Il runtime validator MCP ha una limitazione ambientale nel reinstallare dipendenze in `node_modules` bloccati dal server locale condiviso; non interrompere quel server.
 
 La demo può essere pubblicata con le avvertenze esplicite approvate dall'utente, ma non deve essere presentata come servizio di misurazione reale o come progetto legalmente certificato.
 
@@ -80,4 +80,4 @@ La demo può essere pubblicata con le avvertenze esplicite approvate dall'utente
 
 ## Prossimi passi facoltativi
 
-Committare e pushare il workflow aggiornato e questo handoff solo su `demo/airmap-italia-gis`; attendere il run Actions e verificare HTTP 200 live su home, 8 route e asset. Poi, facoltativamente, svolgere audit di accessibilità, lint dedicato e screenshot definitivi. Per questo progetto statico Angular, non occorre configurare un nuovo account Gmail o acquistare un dominio: l'indirizzo GitHub Pages è già attivo e gratuito.
+Il deploy richiesto è completato. In un prossimo ciclo si possono svolgere audit di accessibilità, lint dedicato e screenshot definitivi. Per questo progetto statico Angular, non occorre configurare un nuovo account Gmail o acquistare un dominio: l'indirizzo GitHub Pages è già attivo e gratuito.
