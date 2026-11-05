@@ -31,6 +31,13 @@ jobs:
       - name: Add SPA route fallback
         run: cp dist/airmap-italia-gis/browser/index.html dist/airmap-italia-gis/browser/404.html
 
+      - name: Add static entry points for Angular routes
+        run: |
+          for route in map dashboard analytics layers settings privacy-policy cookie-policy termini-servizio; do
+            mkdir -p "dist/airmap-italia-gis/browser/$route"
+            cp dist/airmap-italia-gis/browser/index.html "dist/airmap-italia-gis/browser/$route/index.html"
+          done
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
