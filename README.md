@@ -154,7 +154,7 @@ Il workflow GitHub Actions pubblica il branch `demo/airmap-italia-gis` su:
 https://federicocroletti-tech.github.io/airmap-italia-gis/
 ```
 
-Il build imposta il base path del repository, risolve gli asset relativi a quel base path e crea `404.html` per supportare le route Angular dirette. Questo deploy è separato dal servizio Render esistente e non modifica `main`.
+Il build imposta il base path del repository, risolve gli asset relativi a quel base path e crea `404.html` per supportare le route Angular dirette. GitHub Pages può restituire HTTP 404 per una route secondaria anche se il fallback carica correttamente la vista Angular. Questo deploy è separato dal servizio Render esistente e non modifica `main`.
 
 ## Test
 
