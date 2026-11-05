@@ -1,18 +1,140 @@
 {
   "planHash": "1feee125ae148765d9e79fb15b0eaa318eb10ad8f3eb90317daba21c8cf01993",
   "phase": "standalone",
-  "recordedAtUtc": "2026-11-05T15:31:11.3026905Z",
+  "recordedAtUtc": "2026-11-05T16:32:27.6138646Z",
   "retryCount": 0,
   "resetBaseline": false,
-  "complete": false,
-  "runningStep": "setup[0]:npm",
-  "partialOutput": "npm warn deprecated @angular/animations@22.2.4: @angular/animations is deprecated. Use \u0060animate.enter\u0060 and \u0060animate.leave\u0060 instead. For more information see: https://v22.angular.dev/guide/animations.\r\n",
-  "cleanupCompleted": true,
+  "complete": true,
   "result": {
-    "setupSucceeded": false,
-    "setupDurationMs": 0,
+    "setupSucceeded": true,
+    "setupDurationMs": 44113,
     "setupFailureOutput": null,
-    "assertions": [],
-    "executions": []
+    "assertions": [
+      {
+        "name": "production-build",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E airmap-italia@0.0.0 build\r\n\u003E ng build\r\n\r\n\u003E Building...\r\n\u221A Building...\r\nInitial chunk files | Names                    |  Raw size | Estimated transfer size\r\nmain-BJDXQF6Y.js    | main                     | 450.58 kB |               119.07 kB\r\nstyles-Y5MXIKPW.css | styles                   |  24.19 kB |                 4.74 kB\r\n\r\n                    | Initial total            | 474.77 kB |               123.81 kB\r\n\r\nLazy chunk files    | Names                    |  Raw size | Estimated transfer size\r\nchunk-D-MwpyjT.js   | -                        | 215.98 kB |                63.65 kB\r\nchunk-DQf6qwRg.js   | map-page-component       | 175.72 kB |                45.27 kB\r\nchunk-BGOE6G8m.js   | -                        | 111.53 kB |                18.79 kB\r\nchunk-B2sTcPBM.js   | analytics-page-component | 102.65 kB |                22.25 kB\r\nchunk-D1PruhYu.js   | -                        | 101.97 kB |                18.78 kB\r\nchunk-vmduD_kr.js   | -                        |  80.46 kB |                19.36 kB\r\nchunk-DvMTeZIx.js   | -                        |  58.76 kB |                 9.24 kB\r\nchunk-CbpPvWnR.js   | app-shell-component      |  39.50 kB |                10.13 kB\r\nchunk-CJl_xoKQ.js   | -                        |  32.38 kB |                 6.04 kB\r\nchunk-D59rv8ng.js   | settings-page-component  |  26.10 kB |                 5.54 kB\r\nchunk-BqhrGyZj.js   | -                        |  18.18 kB |                 4.98 kB\r\nchunk-CxAMzAFQ.js   | -                        |  13.21 kB |                 4.06 kB\r\nchunk-DRWMsKUJ.js   | -                        |   7.60 kB |                 1.87 kB\r\nchunk-C2afPlAJ.js   | -                        |   7.22 kB |                 1.52 kB\r\nchunk-DWRIO4eh.js   | -                        |   6.76 kB |                 2.38 kB\r\n...and 6 more lazy chunks files. Use \u0022--verbose\u0022 to show all the files.\r\n\r\nApplication bundle generation complete. [15.828 seconds] - 2026-11-05T16:30:28.475Z\r\n\r\nOutput location: C:\\Federico\\Progetti\\airmap-italia-gis\\dist\\airmap-italia-gis\r\n\r\n",
+        "durationMs": 23104
+      },
+      {
+        "name": "tests-pass",
+        "kind": "process",
+        "verificationMethod": "test-results",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E airmap-italia@0.0.0 test\r\n\u003E ng test --watch=false --isolate=false\r\n\r\n\u003E Building...\r\n\u221A Building...\r\nApplication bundle generation complete. [5.149 seconds] - 2026-11-05T16:30:40.379Z\r\n\r\n\r\n\u001B[1m\u001B[30m\u001B[46m RUN \u001B[49m\u001B[39m\u001B[22m \u001B[36mv4.1.12 \u001B[39m\u001B[90mC:/Federico/Progetti/airmap-italia-gis\u001B[39m\r\n\r\n\r\n\u001B[2m Test Files \u001B[22m \u001B[1m\u001B[32m2 passed\u001B[39m\u001B[22m\u001B[90m (2)\u001B[39m\r\n\u001B[2m      Tests \u001B[22m \u001B[1m\u001B[32m4 passed\u001B[39m\u001B[22m\u001B[90m (4)\u001B[39m\r\n\u001B[2m   Start at \u001B[22m 17:30:45\r\n\u001B[2m   Duration \u001B[22m 8.73s\u001B[2m (transform 535ms, setup 4.57s, import 341ms, tests 322ms, environment 7.01s)\u001B[22m\r\n\r\n",
+        "durationMs": 24630,
+        "testResults": {
+          "testFramework": "vitest",
+          "runnerDetectedFrom": "package_json",
+          "testsTotal": 4,
+          "testsPassed": 4,
+          "testsFailed": 0,
+          "testsSkipped": 0,
+          "parseFailed": false
+        }
+      },
+      {
+        "name": "dependencies-audit",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "found 0 vulnerabilities\r\n",
+        "durationMs": 8604
+      },
+      {
+        "name": "home-serves",
+        "kind": "http-probe",
+        "verificationMethod": "http-status",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": null,
+        "outputSample": "HTTP 200\n\u003C!doctype html\u003E\n\u003Chtml lang=\u0022it\u0022\u003E\n  \u003Chead\u003E\n    \u003Cscript type=\u0022module\u0022 src=\u0022/@vite/client\u0022\u003E\u003C/script\u003E\n\n    \u003Cmeta charset=\u0022utf-8\u0022/\u003E\n    \u003Ctitle\u003EAIRMAP ITALIA\u003C/title\u003E\n    \u003Cbase href=\u0022/\u0022/\u003E\n    \u003Cmeta name=\u0022viewport\u0022 content=\u0022width=device-width, initial-scale=1\u0022/\u003E\n    \u003Cmeta name=\u0022description\u0022 content=\u0022AIRMAP ITALIA, piattaforma GIS per monitorare la qualita dell\u0027aria urbana con mappe interattive e dashboard analitiche.\u0022/\u003E\n    \u003Clink rel=\u0022icon\u0022 type=\u0022image/x-icon\u0022 href=\u0022favicon.ico\u0022/\u003E\n    \u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.googleapis.com\u0022/\u003E\n    \u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.gstatic.com\u0022 crossorigin=\u0022\u0022/\u003E\n    \u003Clink href=\u0022https://fonts.googleapis.com/icon?family=Material\u002BIcons\u002BRound\u0022 rel=\u0022stylesheet\u0022/\u003E\n  \u003Clink rel=\u0022stylesheet\u0022 href=\u0022styles.css\u0022\u003E\u003C/head\u003E\n  \u003Cbody\u003E\n    \u003Capp-root\u003E\u003C/app-root\u003E\n  \u003Cscript src=\u0022main.js\u0022 type=\u0022module\u0022\u003E\u003C/script\u003E\u003C/body\u003E\n\u003C/html\u003E\n\n--- server output ---\n\r\n\u003E airmap-italia@0.0.0 start\r\n\u003E ng serve --host 127.0.0.1 --port 4300\r\n\r\n\u003E Building...\r\n\u221A Building...\r\nInitial chunk files | Names                    |  Raw size\r\nstyles.css          | styles                   |  28.16 kB | \r\nmain.js             | main                     |  18.76 kB | \r\nchunk-OX3L6QGJ.js   | -                        |   3.11 kB | \r\nchunk-R4ZY7T77.js   | -                        |   2.40 kB | \r\nchunk-VUJOFXKG.js   | -                        | 987 bytes | \r\n\r\n                    | Initial total            |  53.42 kB\r\n\r\nLazy chunk files    | Names                    |  Raw size\r\nchunk-UNCE3MZX.js   | map-page-component       |  76.63 kB | \r\nchunk-TYCT63WE.js   | analytics-page-component |  40.97 kB | \r\nchunk-6VDZZJQV.js   | app-shell-component      |  33.80 kB | \r\nchunk-2NLASCRC.js   | dashboard-page-component |  19.22 kB | \r\nchunk-O75LGV7I.js   | -                        |  14.46 kB | \r\nchunk-D2TAK4DC.js   | settings-page-component  |  10.61 kB | \r\nchunk-7PDYM7BT.js   | legal-page-component     |   8.66 kB | \r\nchunk-UMCGTE3D.js   | layers-page-component    |   5.74 kB | \r\nchunk-UMTED4B4.js   | -                        |   5.61 kB | \r\nchunk-RVZ2DOAY.js   | -                        |   4.03 kB | \r\nchunk-V25ZPAPS.js   | -                        |   2.90 kB | \r\nchunk-BY7CXJCK.js   | -                        |   1.78 kB | \r\n\r\nApplication bundle generation complete. [70.146 seconds] - 2026-11-05T16:32:22.686Z\r\n\r\nWatch mode enabled. Watching for file changes...\r\nNOTE: Raw file sizes do not reflect development server per-request transformations.\r\n  \u001B[32m\u279C\u001B[39m  \u001B[1mLocal\u001B[22m:   \u001B[36mhttp://127.0.0.1:\u001B[1m4300\u001B[22m/\u001B[39m\r\n",
+        "durationMs": 83042
+      }
+    ],
+    "executions": [
+      {
+        "source": "setup[0]",
+        "resolvedExecutable": "C:\\nvm4w\\nodejs\\npm.CMD",
+        "args": [
+          "ci",
+          "--legacy-peer-deps"
+        ],
+        "cwd": "C:\\Federico\\Progetti\\airmap-italia-gis",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "production-build",
+        "resolvedExecutable": "C:\\nvm4w\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "build"
+        ],
+        "cwd": "C:\\Federico\\Progetti\\airmap-italia-gis",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "tests-pass",
+        "resolvedExecutable": "C:\\nvm4w\\nodejs\\npm.CMD",
+        "args": [
+          "test",
+          "--",
+          "--watch=false",
+          "--isolate=false"
+        ],
+        "cwd": "C:\\Federico\\Progetti\\airmap-italia-gis",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "dependencies-audit",
+        "resolvedExecutable": "C:\\nvm4w\\nodejs\\npm.CMD",
+        "args": [
+          "audit"
+        ],
+        "cwd": "C:\\Federico\\Progetti\\airmap-italia-gis",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "home-serves",
+        "resolvedExecutable": "C:\\nvm4w\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "start",
+          "--",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "4300"
+        ],
+        "cwd": "C:\\Federico\\Progetti\\airmap-italia-gis",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      }
+    ]
   }
 }

@@ -4,21 +4,21 @@ Ultimo controllo: 5 novembre 2026. Questa è una verifica tecnica e UX prelimina
 
 ## Stato attuale
 
-**La versione corretta è committata e pushata sul branch demo; l'istanza Render dedicata non è stata creata.** Build, test, audit npm, scansione CVE e probe HTTP sulla copia pulita sono superati. L'utente ha approvato informative provvisorie da demo, indicato il recapito `federico.croletti@gmail.com`, confermato il regime proprietario attuale e chiesto una nuova istanza Render separata da `main`. Il runner di validazione MCP continua a scadere durante l'installazione, prima delle asserzioni; i controlli equivalenti sono stati eseguiti manualmente.
+**La build e i test sono validati; è pronto il deploy GitHub Pages, che sarà verificato dopo il push del workflow.** La validazione runtime MCP del 5 novembre 2026 è passata (build, 4 test, audit dipendenze e probe HTTP della home). In precedenza lo stesso runner era scaduto durante l'installazione; il risultato positivo più recente sostituisce quel blocco. L'utente ha approvato informative provvisorie da demo, indicato il recapito `federico.croletti@gmail.com`, confermato il regime proprietario attuale e richiesto un hosting gratuito separato da `main`.
 
-Il codice applicativo è nel commit `b948adff985346bc3b44040494c476f5d72014fd`; il checkpoint aggiornato è nel commit `68176f1`, entrambi pushati su `demo/airmap-italia-gis`. Il servizio Render esistente è collegato a `main` e serve il commit `d4b666d`; non è stato modificato. La dashboard disabilita la creazione di un nuovo sito statico e la marca `Pro` (il progetto mostra inoltre `25/25`): non è stata avviata una nuova istanza né un upgrade a pagamento.
+Il codice applicativo è nel commit `b948adff985346bc3b44040494c476f5d72014fd`. Il servizio Render esistente è collegato a `main` e serve il commit `d4b666d`; non è stato modificato. È stato abilitato GitHub Pages con `build_type: workflow`, source branch `demo/airmap-italia-gis`, e un workflow che pubblica solo quel branch su `https://federicocroletti-tech.github.io/airmap-italia-gis/`.
 
 ## Baseline e stato Git
 
 - Repository: `federicocroletti-tech/airmap-italia-gis`.
-- Branch: `demo/airmap-italia-gis`.
-- HEAD: `68176f1` (`Document Render deployment blocker`); `origin/demo/airmap-italia-gis` coincide con HEAD. Il commit del codice applicativo è `b948adf` (`Prepare Airmap demo release and remediate dependencies`).
+- Branch: `demo/airmap-italia-gis`; il commit applicativo è `b948adf` (`Prepare Airmap demo release and remediate dependencies`).
 - `main` resta a `d4b666dfa285af0e7df29f6ffe1e93c845d629ce`. Non fare push su `main`.
 - Il servizio Render esistente `airmap-italia-gis` è collegato al repository `federicocroletti-tech/airmap-italia-gis`, branch `main`; l'ultimo deploy riuscito punta a `d4b666d`. Lasciarlo invariato.
-- La nuova istanza dedicata dal branch `demo/airmap-italia-gis` non è stata creata: l'opzione `Static Site` nella dashboard è disabilitata e marcata `Pro`, e il progetto segnala `25/25`. Serve una scelta dell'utente su upgrade/costi o hosting alternativo.
+- GitHub Pages è configurato in modalità workflow con source branch `demo/airmap-italia-gis`; workflow `.github/workflows/deploy-demo-pages.yml`. URL previsto: `https://federicocroletti-tech.github.io/airmap-italia-gis/`.
+- Render non permette di creare un secondo Static Site con il piano attuale (opzione `Pro` disabilitata, `25/25`); non è stato eseguito alcun upgrade né sostenuto alcun costo.
 - Aggiunto `.tsupgrader/runtime-validation/eval-plan.json` per ripetere installazione, build, test e probe HTTP; usa il probe come fallback perché la registrazione Playwright non è riuscita.
 
-## Modifiche applicate in questo ciclo
+## Modifiche applicate nella preparazione GitHub Pages
 
 - Aggiunto un avviso persistente e tradotto IT/EN che identifica i dati come sintetici, statici, non aggiornati e inadatti a decisioni ambientali o sanitarie.
 - Rimossi dai dati GeoJSON e dalle interfacce di mappa, dettaglio e analytics i campi non supportati di popolazione esposta e rischio sanitario; rimossi anche da ricerca e modello tipizzato.
@@ -30,6 +30,8 @@ Il codice applicativo è nel commit `b948adff985346bc3b44040494c476f5d72014fd`; 
 - Aggiornati Angular e il lockfile per eliminare gli advisory noti; dettaglio in `.tsupgrader/cve-fix-summary.md`.
 - Allineato il comando build Render a `npm ci --legacy-peer-deps`, come già documentato nel README.
 - Aggiornato README e piano runtime per descrivere disclosure e controlli aggiornati.
+- Aggiunto `.github/workflows/deploy-demo-pages.yml`, limitato ai push su `demo/airmap-italia-gis`; il workflow compila con il base path del repository, prepara il fallback SPA `404.html` e pubblica con GitHub Pages.
+- Aggiornati README e questo handoff per descrivere l'hosting Pages e registrare la validazione runtime più recente.
 
 ## Verifiche eseguite dopo le modifiche
 
@@ -41,7 +43,7 @@ Il codice applicativo è nel commit `b948adff985346bc3b44040494c476f5d72014fd`; 
 | NPM audit | ✅ | `npm audit`: zero vulnerabilità nell'intero lockfile dopo gli aggiornamenti. |
 | Scansione CVE | ✅ | Prima scansione: 81 finding. Dopo aggiornamenti: zero finding noti nelle dipendenze individuate come interessate; report iniziale/finale e riepilogo in `.tsupgrader/`. |
 | Probe HTTP della build pulita | ✅ | Entry e route SPA `/`, `/map`, `/privacy-policy`, `/cookie-policy`, `/termini-servizio` e asset IT/EN rispondono 200; traduzioni correnti controllate. |
-| Runtime validation MCP | ⚠️ bloccata | L'ultima esecuzione è scaduta durante `setup[0]:npm`, prima delle asserzioni; cleanup completato. Esito in `.tsupgrader/runtime-validation/standalone-result.json`; build/test/audit/probe sono stati eseguiti direttamente in una copia pulita. |
+| Runtime validation MCP | ✅ | Esecuzione standalone completata il 5 novembre 2026: setup riuscito, build produzione superata (474,77 kB iniziali), 4/4 test superati, audit dipendenze superato e probe HTTP home 200. Dettaglio riproducibile in `.tsupgrader/runtime-validation/standalone-result.json`. |
 | Browser Playwright/CDP | ⚠️ ambiente | La registrazione Playwright non ha creato la spec; Edge si è chiuso. Le pagine condivise e il tentativo di aprire la build locale hanno poi restituito timeout CDP. Non è stato verificato un flusso interattivo automatizzato in questo giro. |
 | Dati mock | ✅ strutturali | 15 poligoni, 4 sensori, 2 layer, 7 punti storici, 5 KPI; JSON valido, coordinate e geometrie controllate; nessun campo `populationExposure`/`riskLevel` nelle feature. Non è una validazione scientifica. |
 | Traduzioni | ✅ | 127 chiavi in ciascun file IT/EN, nessuna chiave mancante; disclosure presente in entrambe. |
@@ -49,18 +51,19 @@ Il codice applicativo è nel commit `b948adff985346bc3b44040494c476f5d72014fd`; 
 | Navigazione mobile | ✅ | Link a Mappa, Dashboard, Analytics, Layer e Impostazioni visibili; tutte e quattro le route secondarie aperte e heading verificato. |
 | Flusso di ricerca | ✅ | Ricerca “Centrale”, selezione risultato, apertura dettaglio; dettaglio senza popolazione esposta o rischio sanitario. |
 | Analytics e lingua | ✅ | Route Analytics caricata senza colonne di rischio/esposizione; avviso inglese controllato. |
-| Preview Render esistente | ⚠️ vecchia versione live | `https://airmap-italia-gis.onrender.com/` risponde HTTP 200 ma serve ancora la vecchia traduzione. Dashboard: servizio collegato a `main`, ultimo deploy riuscito `d4b666d`; la nuova istanza demo non è stata creata. |
+| Preview Render esistente | ⚠️ vecchia versione live | `https://airmap-italia-gis.onrender.com/` risponde HTTP 200 ma serve ancora la vecchia traduzione. Dashboard: servizio collegato a `main`, ultimo deploy riuscito `d4b666d`; resta invariato. |
+| GitHub Pages - build isolata | ✅ | In copia pulita: `npm ci --legacy-peer-deps` (383 pacchetti, zero vulnerabilità), `npm run build -- --base-href /airmap-italia-gis/` superato; base path e copia `index.html` → `404.html` verificati. |
+| GitHub Pages - deploy live | ⏳ | Pages abilitato in modalità workflow; il workflow non è ancora stato pushato. Verificare il run Actions e le route live dopo il commit/push. |
 | Screenshot/video | ➖ | Nessun file definitivo o video creato. |
 | `git diff --check` | ✅ | Superato dopo le modifiche documentali e l’aggiunta del piano runtime. |
 
 Il probe HTTP è stato eseguito sulla build di produzione della copia corretta; non equivale a una verifica browser visuale né alla verifica del deployment live.
 
-## Blocchi per completare il deploy dedicato
+## Stato deploy
 
 1. **Limite legale intenzionale:** le pagine sono informative e provvisorie per una demo, non costituiscono documenti legali né attestano conformità. Non promuovere la demo come servizio operativo.
-2. **Render:** il servizio esistente usa `main` e deve restare intatto. Creare un servizio separato dal branch demo richiede un'abilitazione/upgrade Render: la dashboard mostra `Static Site` disabilitato con etichetta `Pro` e `25/25`. Non è stato fatto alcun upgrade né sostenuto alcun costo. Attendere una scelta esplicita dell'utente su piano/costo o su un provider alternativo.
-3. **Copertura e browser:** 4 unit test e probe HTTP passano; i flussi UI sono coperti solo da verifiche manuali precedenti, perché Playwright/CDP non è disponibile in questo ambiente.
-4. **Runtime MCP:** il runner continua a scadere sull'installazione anche quando `npm ci`, build, test, audit e probe manuali passano. Non cambiare i controlli per forzare un pass.
+2. **Render:** il servizio esistente usa `main` e deve restare intatto. Un secondo Static Site Render non è disponibile senza piano Pro; non è stato fatto alcun upgrade né sostenuto alcun costo. Per la demo è stato scelto GitHub Pages, gratuito per questo repository pubblico.
+3. **Copertura e browser:** 4 unit test e probe HTTP home passano; i flussi UI sono coperti solo da verifiche manuali precedenti, perché Playwright/CDP non è disponibile in questo ambiente.
 
 La demo può essere pubblicata con le avvertenze esplicite approvate dall'utente, ma non deve essere presentata come servizio di misurazione reale o come progetto legalmente certificato.
 
@@ -68,9 +71,9 @@ La demo può essere pubblicata con le avvertenze esplicite approvate dall'utente
 
 - Lint dedicato; audit screen reader, contrasto sistematico, tastiera completa o zoom al 200%.
 - Screen reader, audit sistematico di contrasto, tastiera completa o zoom al 200%.
-- Creazione e deploy della nuova istanza Render dedicata; verifica del bundle/pagine live aggiornati.
+- Push del workflow, primo run GitHub Actions e verifica HTTP delle route e degli asset su GitHub Pages.
 - Screenshot/video.
 
 ## Ripresa: un solo prossimo passo
 
-**Completare la pubblicazione senza toccare `main`**: attendere che l'utente abiliti un piano Render che consenta un secondo static site (con costo massimo esplicito) oppure scelga un provider alternativo. Quindi creare `airmap-italia-gis-demo` dal branch `demo/airmap-italia-gis` e verificare che la nuova URL serva il commit `b948adf`, l'avviso browser e le pagine informative.
+**Completare e verificare il deploy gratuito**: committare e pushare il workflow `.github/workflows/deploy-demo-pages.yml` e le note aggiornate sul solo branch `demo/airmap-italia-gis`. Poi controllare GitHub Actions e verificare `https://federicocroletti-tech.github.io/airmap-italia-gis/` e le route `/map`, `/privacy-policy`, `/cookie-policy`, `/termini-servizio`. Non toccare `main` né il servizio Render esistente.

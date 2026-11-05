@@ -146,6 +146,16 @@ Destination: /index.html
 Action: Rewrite
 ```
 
+## Deploy demo gratuita (GitHub Pages)
+
+Il workflow GitHub Actions pubblica il branch `demo/airmap-italia-gis` su:
+
+```text
+https://federicocroletti-tech.github.io/airmap-italia-gis/
+```
+
+Il build imposta il base path del repository e crea `404.html` per supportare le route Angular dirette. Questo deploy e separato dal servizio Render esistente e non modifica `main`.
+
 ## Test
 
 ```bash
