@@ -16,9 +16,7 @@
         "co2": 512,
         "pollutionLevel": "moderate",
         "lastUpdate": "2026-07-24T10:30:00Z",
-        "trend": "up",
-        "populationExposure": 72000,
-        "riskLevel": "warning"
+        "trend": "up"
       },
       "geometry": {
         "type": "Polygon",
@@ -53,9 +51,7 @@
         "co2": 575,
         "pollutionLevel": "high",
         "lastUpdate": "2026-07-24T10:25:00Z",
-        "trend": "up",
-        "populationExposure": 54000,
-        "riskLevel": "warning"
+        "trend": "up"
       },
       "geometry": {
         "type": "Polygon",
@@ -90,9 +86,7 @@
         "co2": 642,
         "pollutionLevel": "high",
         "lastUpdate": "2026-07-24T10:20:00Z",
-        "trend": "stable",
-        "populationExposure": 46000,
-        "riskLevel": "warning"
+        "trend": "stable"
       },
       "geometry": {
         "type": "Polygon",
@@ -126,9 +120,7 @@
         "co2": 618,
         "pollutionLevel": "high",
         "lastUpdate": "2026-07-24T10:18:00Z",
-        "trend": "up",
-        "populationExposure": 38000,
-        "riskLevel": "warning"
+        "trend": "up"
       },
       "geometry": {
         "type": "Polygon",
@@ -162,9 +154,7 @@
         "co2": 468,
         "pollutionLevel": "moderate",
         "lastUpdate": "2026-07-24T10:15:00Z",
-        "trend": "down",
-        "populationExposure": 28000,
-        "riskLevel": "attention"
+        "trend": "down"
       },
       "geometry": {
         "type": "Polygon",
@@ -198,9 +188,7 @@
         "co2": 498,
         "pollutionLevel": "moderate",
         "lastUpdate": "2026-07-24T10:12:00Z",
-        "trend": "stable",
-        "populationExposure": 63000,
-        "riskLevel": "attention"
+        "trend": "stable"
       },
       "geometry": {
         "type": "Polygon",
@@ -234,9 +222,7 @@
         "co2": 482,
         "pollutionLevel": "moderate",
         "lastUpdate": "2026-07-24T10:10:00Z",
-        "trend": "down",
-        "populationExposure": 35000,
-        "riskLevel": "low"
+        "trend": "down"
       },
       "geometry": {
         "type": "Polygon",
@@ -270,9 +256,7 @@
         "co2": 735,
         "pollutionLevel": "very-high",
         "lastUpdate": "2026-07-24T10:28:00Z",
-        "trend": "up",
-        "populationExposure": 88000,
-        "riskLevel": "danger"
+        "trend": "up"
       },
       "geometry": {
         "type": "Polygon",
@@ -306,9 +290,7 @@
         "co2": 544,
         "pollutionLevel": "moderate",
         "lastUpdate": "2026-07-24T10:27:00Z",
-        "trend": "stable",
-        "populationExposure": 52000,
-        "riskLevel": "attention"
+        "trend": "stable"
       },
       "geometry": {
         "type": "Polygon",
@@ -342,9 +324,7 @@
         "co2": 505,
         "pollutionLevel": "moderate",
         "lastUpdate": "2026-07-24T10:24:00Z",
-        "trend": "down",
-        "populationExposure": 58000,
-        "riskLevel": "attention"
+        "trend": "down"
       },
       "geometry": {
         "type": "Polygon",
@@ -378,9 +358,7 @@
         "co2": 688,
         "pollutionLevel": "very-high",
         "lastUpdate": "2026-07-24T10:21:00Z",
-        "trend": "up",
-        "populationExposure": 69000,
-        "riskLevel": "danger"
+        "trend": "up"
       },
       "geometry": {
         "type": "Polygon",
@@ -414,9 +392,7 @@
         "co2": 596,
         "pollutionLevel": "high",
         "lastUpdate": "2026-07-24T10:19:00Z",
-        "trend": "stable",
-        "populationExposure": 61000,
-        "riskLevel": "warning"
+        "trend": "stable"
       },
       "geometry": {
         "type": "Polygon",
@@ -450,9 +426,7 @@
         "co2": 528,
         "pollutionLevel": "moderate",
         "lastUpdate": "2026-07-24T10:17:00Z",
-        "trend": "down",
-        "populationExposure": 57000,
-        "riskLevel": "attention"
+        "trend": "down"
       },
       "geometry": {
         "type": "Polygon",
@@ -486,9 +460,7 @@
         "co2": 442,
         "pollutionLevel": "excellent",
         "lastUpdate": "2026-07-24T10:16:00Z",
-        "trend": "down",
-        "populationExposure": 74000,
-        "riskLevel": "low"
+        "trend": "down"
       },
       "geometry": {
         "type": "Polygon",
@@ -522,9 +494,7 @@
         "co2": 562,
         "pollutionLevel": "high",
         "lastUpdate": "2026-07-24T10:14:00Z",
-        "trend": "stable",
-        "populationExposure": 64000,
-        "riskLevel": "warning"
+        "trend": "stable"
       },
       "geometry": {
         "type": "Polygon",

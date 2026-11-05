@@ -74,6 +74,29 @@
   flex: 1;
 }
 
+.mobile-nav {
+  display: none;
+}
+
+.demo-notice {
+  align-items: flex-start;
+  background: #fff4d6;
+  border-bottom: 1px solid #8a5a00;
+  color: #382300;
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.demo-notice mat-icon {
+  flex: 0 0 auto;
+}
+
+.demo-notice p {
+  line-height: 1.45;
+  margin: 0;
+}
+
 .content-shell {
   background: var(--airmap-app-bg);
   min-height: calc(100vh - 8rem);
@@ -108,7 +131,46 @@
     display: none;
   }
 
+  .mobile-nav {
+    background: var(--airmap-toolbar-bg);
+    border-bottom: 1px solid var(--airmap-border);
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .mobile-nav a {
+    align-items: center;
+    border-radius: 0.5rem;
+    color: var(--airmap-text);
+    display: flex;
+    flex: 0 0 auto;
+    gap: 0.35rem;
+    min-height: 2.75rem;
+    padding: 0 0.65rem;
+    text-decoration: none;
+  }
+
+  .demo-notice {
+    padding: 0.65rem 0.75rem;
+  }
+
   .content-shell {
     padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-nav a {
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    min-width: 3.6rem;
+    padding: 0.25rem;
+  }
+
+  .mobile-nav a span {
+    font-size: 0.68rem;
   }
 }

@@ -16,8 +16,6 @@ export class AnalyticsService {
         pm10: area.pm10,
         pm25: area.pm25,
         no2: area.no2,
-        riskLevel: area.riskLevel,
-        populationExposure: area.populationExposure,
       }));
   }
 

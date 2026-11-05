@@ -21,11 +21,25 @@ type LegalPage = 'privacy' | 'cookie' | 'terms';
           }}</mat-card-title></mat-card-header
         >
         <mat-card-content>
-          <p>{{ 'LEGAL.PLACEHOLDER' | translate }}</p>
-          <p>
-            Questa pagina contiene una struttura base da completare con consulenza legale prima
-            della pubblicazione.
-          </p>
+          <p class="demo-notice">{{ 'LEGAL.DEMO_NOTICE' | translate }}</p>
+          @for (sectionKey of sectionKeys(); track sectionKey) {
+            <p>{{ sectionKey | translate }}</p>
+          }
+          @if (page() === 'privacy') {
+            <p>
+              <a href="mailto:federico.croletti@gmail.com">{{
+                'LEGAL.CONTACT' | translate
+              }}</a>
+            </p>
+            <p>
+              <a
+                href="https://osmfoundation.org/wiki/Privacy_Policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                >{{ 'LEGAL.OSM_PRIVACY' | translate }}</a
+              >
+            </p>
+          }
         </mat-card-content>
       </mat-card>
     </section>
@@ -41,6 +55,12 @@ type LegalPage = 'privacy' | 'cookie' | 'terms';
       p {
         color: var(--airmap-muted);
         line-height: 1.7;
+      }
+      .demo-notice {
+        background: var(--airmap-surface);
+        border-left: 3px solid var(--airmap-primary);
+        color: var(--airmap-text);
+        padding: 0.75rem 1rem;
       }
     `,
   ],
@@ -61,5 +81,20 @@ export class LegalPageComponent {
     };
 
     return keys[this.page()];
+  });
+
+  readonly sectionKeys = computed(() => {
+    const sections: Record<LegalPage, string[]> = {
+      privacy: [
+        'LEGAL.PRIVACY_DATA',
+        'LEGAL.PRIVACY_STORAGE',
+        'LEGAL.PRIVACY_EXTERNAL',
+        'LEGAL.PRIVACY_CONTACT',
+      ],
+      cookie: ['LEGAL.COOKIE_STORAGE', 'LEGAL.COOKIE_TRACKING', 'LEGAL.COOKIE_CONTROL'],
+      terms: ['LEGAL.TERMS_DEMO', 'LEGAL.TERMS_DATA', 'LEGAL.TERMS_THIRD_PARTY'],
+    };
+
+    return sections[this.page()];
   });
 }

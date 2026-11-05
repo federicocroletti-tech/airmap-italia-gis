@@ -13,6 +13,4 @@ export interface AnalyticsRankingRow {
   pm10: number;
   pm25: number;
   no2: number;
-  riskLevel: string;
-  populationExposure: number;
 }

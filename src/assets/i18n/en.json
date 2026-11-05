@@ -1,10 +1,11 @@
 {
   "APP": {
     "TITLE": "AIRMAP ITALIA",
-    "SUBTITLE": "Urban air quality GIS monitoring",
-    "CONTACTS": "Contacts"
+    "SUBTITLE": "GIS demo with simulated environmental data",
+    "DEMO_NOTICE": "Demo with synthetic, static environmental data that is not updated in real time. Values are illustrative and must not be used for environmental or health decisions."
   },
   "NAV": {
+    "MAIN": "Main navigation",
     "MAP": "Map",
     "DASHBOARD": "Dashboard",
     "ANALYTICS": "Analytics",
@@ -42,9 +43,7 @@
     "LEVEL_POOR": "Poor",
     "LEVEL_CRITICAL": "Critical",
     "TREND": "Trend",
-    "LAST_UPDATE": "Last update",
-    "POPULATION_EXPOSURE": "Exposed population",
-    "RISK_LEVEL": "Estimated health risk"
+    "LAST_UPDATE": "Last update"
   },
   "DASHBOARD": {
     "TITLE": "Environmental dashboard",
@@ -101,8 +100,6 @@
     "ALL": "All",
     "AREA": "Area",
     "DISTRICT": "District",
-    "RISK": "Risk",
-    "POPULATION": "Population",
     "FILTER_DISTRICT": "District",
     "FILTER_LEVEL": "Pollution level",
     "FILTER_RANGE": "Time range",
@@ -121,22 +118,26 @@
     "DARK": "Dark"
   },
   "LEGAL": {
-    "PRIVACY": "Privacy Policy",
-    "COOKIE": "Cookie Policy",
-    "TERMS": "Terms of Service",
-    "PLACEHOLDER": "Text to be reviewed before publication."
+    "PRIVACY": "Privacy information",
+    "COOKIE": "Browser storage",
+    "TERMS": "Demo use notes",
+    "DEMO_NOTICE": "Provisional information for a non-operational demo. It describes the application's current behavior and is not legal advice or a complete compliance notice.",
+    "PRIVACY_DATA": "The demo does not provide accounts or require personal information to use search, maps, or dashboards. It does not send user searches or filters to an application backend.",
+    "PRIVACY_STORAGE": "The theme, language, and dismissal of this notice are stored locally in the browser using localStorage. They remain on the device until the site's data is cleared.",
+    "PRIVACY_EXTERNAL": "The map loads map tile images from OpenStreetMap servers. The static site and tile provider receive network requests and may process technical data such as IP address, HTTP headers, and requested URLs under their own terms and retention practices.",
+    "PRIVACY_CONTACT": "Project contact: Federico Croletti. For questions about this demo:",
+    "OSM_PRIVACY": "OpenStreetMap Foundation privacy policy",
+    "COOKIE_STORAGE": "The demo code does not set HTTP cookies. It uses localStorage for the theme, language, and dismissal of this notice; the browser keeps these settings on the device.",
+    "COOKIE_TRACKING": "The demo does not integrate usage analytics, advertising, or tracking tools. Statistics and marketing categories are not active.",
+    "COOKIE_CONTROL": "You can clear local data for this site in your browser settings. This notice will appear again after its dismissal setting is cleared.",
+    "TERMS_DEMO": "The map and data are illustrative, synthetic, and static; they do not represent real or current measurements and are not suitable for environmental, health, or emergency decisions.",
+    "TERMS_DATA": "The application is provided for illustrative purposes, without guarantees of accuracy, availability, or fitness for a particular purpose. It is not an environmental monitoring service.",
+    "TERMS_THIRD_PARTY": "OpenStreetMap tiles and other third-party components remain subject to their own terms and licenses. Rights in original code are described in the LICENSE file."
   },
   "COOKIE": {
-    "TITLE": "Cookie preferences",
-    "TEXT": "We use necessary cookies and, only with consent, preference, statistics, and marketing cookies.",
-    "ACCEPT_ALL": "Accept all",
-    "REJECT_OPTIONAL": "Necessary only",
-    "CUSTOMIZE": "Customize",
-    "SAVE": "Save preferences",
-    "NECESSARY": "Necessary",
-    "PREFERENCES": "Preferences",
-    "STATISTICS": "Statistics",
-    "MARKETING": "Marketing"
+    "TITLE": "Browser storage notice",
+    "TEXT": "This demo stores the theme, language, and dismissal of this notice only in your browser. It uses no accounts or analytics/marketing tools. Map tiles are requested from OpenStreetMap.",
+    "ACKNOWLEDGE": "Understood"
   },
   "COMMON": {
     "LOADING": "Loading",

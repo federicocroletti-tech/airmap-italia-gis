@@ -1,12 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import {
+  IsActiveMatchOptions,
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet,
+} from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { CookieBannerComponent } from '../layout/cookie-banner.component';
 import { SettingsFacade } from '../../features/settings/facades/settings.facade';
@@ -40,8 +46,8 @@ interface NavItem {
 })
 export class AppShellComponent {
   private readonly settingsFacade = inject(SettingsFacade);
+  private readonly router = inject(Router);
 
-  readonly mobileNavOpened = signal(false);
   readonly theme = this.settingsFacade.currentTheme;
   readonly navItems: NavItem[] = [
     { path: '/map', icon: 'map', labelKey: 'NAV.MAP' },
@@ -63,11 +69,18 @@ export class AppShellComponent {
     this.settingsFacade.setLanguage(language);
   }
 
-  closeMobileNav(): void {
-    this.mobileNavOpened.set(false);
-  }
-
   trackByPath(_: number, item: NavItem): string {
     return item.path;
+  }
+
+  isActive(path: string): boolean {
+    const options: IsActiveMatchOptions = {
+      paths: 'exact',
+      queryParams: 'ignored',
+      fragment: 'ignored',
+      matrixParams: 'ignored',
+    };
+
+    return this.router.isActive(path, options);
   }
 }

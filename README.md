@@ -1,13 +1,15 @@
 # AIRMAP ITALIA
 
-AIRMAP ITALIA e una piattaforma GIS sviluppata in Angular per il monitoraggio della qualita dell'aria urbana, con mappe interattive, poligoni GeoJSON colorati in base all'AQI, dashboard analitiche, layer geografici e predisposizione WMS/WFS/GeoServer.
+Stato della verifica di presentabilità: [DEMO_READINESS.md](./DEMO_READINESS.md).
+
+AIRMAP ITALIA e una demo GIS Angular per esplorare dati ambientali sintetici e statici, con mappe interattive, poligoni GeoJSON, dashboard analitiche e layer geografici. Non mostra misurazioni reali o aggiornate e non deve essere usata per decisioni ambientali o sanitarie.
 
 Repository: https://github.com/federicocroletti-tech/airmap-italia-gis.git  
 Autore: Federico Croletti
 
 ## Obiettivo
 
-Il progetto permette di individuare rapidamente zone piu inquinate, aree salubri, aree critiche, trend dell'inquinamento e differenze tra quartieri urbani. La prima versione usa dati mock realistici su Milano e una mappa Leaflet centrata su coordinate `45.4642, 9.1900`.
+La demo illustra come esplorare e confrontare indicatori simulati tra aree urbane. I valori sono mock e non descrivono la qualita dell'aria reale di Milano.
 
 ## Stack Tecnologico
 
@@ -29,13 +31,14 @@ Il progetto permette di individuare rapidamente zone piu inquinate, aree salubri
 - Pannello dettaglio area su click con storico AQI e azioni
 - Aggiornamento stile poligoni al cambio zoom
 - Layer panel con visibilita e opacita configurabili
-- Ricerca per area, quartiere, livello, rischio, AQI e coordinate
+- Navigazione responsive e avviso persistente sulla natura sintetica dei dati
+- Ricerca per area, quartiere, livello, AQI e coordinate
 - Dashboard KPI con grafici Chart.js
 - Analytics con classifiche, filtri, tabella Material, sort e paginazione
 - Tema chiaro/scuro persistito in localStorage
 - Multilingua IT/EN
-- Cookie banner con preferenze estendibili
-- Pagine legali base: Privacy Policy, Cookie Policy, Termini di Servizio
+- Avviso trasparente sull'uso di localStorage e sulle richieste alle tessere OpenStreetMap
+- Informative dimostrative in italiano e inglese su dati locali, servizi di terze parti e limiti della demo
 
 ## Architettura
 
@@ -149,18 +152,16 @@ Action: Rewrite
 npm test
 ```
 
-## Screenshot Placeholder
+## Screenshot
 
-- `docs/screenshots/map-desktop.png`
-- `docs/screenshots/dashboard.png`
-- `docs/screenshots/analytics.png`
+Non sono ancora stati prodotti screenshot definitivi. I percorsi storici `docs/screenshots/map-desktop.png`, `dashboard.png` e `analytics.png` sono segnaposto documentali e i file non sono presenti.
 
-## Dati Mock
+## Dati sintetici
 
-I file mock modificabili sono in `src/assets/mock/`:
+Tutti i valori ambientali nelle viste e nei file in `src/assets/mock/` sono dati sintetici, statici e non aggiornati in tempo reale:
 
 - `air-quality-areas.geojson`: 15 aree urbane mock con geometrie irregolari e tondeggianti
-- `map-layers.json`: layer cartografici reali accendibili in mappa, come poligoni qualita aria e centraline ambientali
+- `map-layers.json`: configurazione dei layer dimostrativi
 - `sensors.json`: sensori ambientali mock
 - `air-quality-history.json`: storico mock per il pannello dettaglio
 - `dashboard-summary.json`: KPI e serie dati della dashboard
@@ -183,7 +184,7 @@ Il file `src/assets/mock/air-quality-areas.geojson` include:
 - San Siro
 - Bicocca
 
-Ogni feature include AQI, PM10, PM2.5, NO2, O3, CO, CO2, trend, popolazione esposta e rischio stimato. La mappa legge questi asset via HttpClient, quindi puoi modificare i dati senza toccare i componenti Angular.
+Le feature includono indicatori ambientali dimostrativi e timestamp fissi. Non sono presenti valutazioni di popolazione esposta o di rischio sanitario. La mappa legge gli asset via HttpClient; non collegare i valori a fonti o misurazioni reali senza una revisione scientifica e una nuova validazione dei contenuti.
 
 ## Roadmap
 
@@ -198,4 +199,4 @@ Ogni feature include AQI, PM10, PM2.5, NO2, O3, CO, CO2, trend, popolazione espo
 
 ## Note Produzione
 
-I testi legali sono placeholder e vanno revisionati prima della pubblicazione. Non sono presenti secret nel frontend. Gli URL applicativi sono centralizzati in `src/environments` e `src/app/core/config/app.config.ts`.
+I testi legali sono placeholder e vanno revisionati prima di promuovere o pubblicare il progetto come servizio. Il contatto non e configurato. La mappa usa tile OpenStreetMap con attribuzione visibile. Non sono presenti secret nel frontend. Gli URL applicativi sono centralizzati in `src/environments` e `src/app/core/config/app.config.ts`.

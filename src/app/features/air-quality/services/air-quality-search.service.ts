@@ -23,7 +23,6 @@ export class AirQualitySearchService {
         area.name,
         area.district,
         area.pollutionLevel,
-        area.riskLevel,
         String(area.aqi),
       ];
       return values.some((value) => value.toLowerCase().includes(normalizedQuery));

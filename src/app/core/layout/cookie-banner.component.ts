@@ -1,31 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { CookieConsentService } from '../services/cookie-consent.service';
-import { CookiePreferencesDialogComponent } from './cookie-preferences-dialog.component';
+import { BrowserStorageNoticeService } from '../services/browser-storage-notice.service';
 
 @Component({
   selector: 'app-cookie-banner',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatDialogModule, TranslatePipe],
+  imports: [CommonModule, MatButtonModule, RouterLink, TranslatePipe],
   template: `
     @if (visible()) {
-      <aside class="cookie-banner" aria-labelledby="cookie-title">
+      <aside class="storage-notice" aria-labelledby="storage-notice-title">
         <div>
-          <h2 id="cookie-title">{{ 'COOKIE.TITLE' | translate }}</h2>
+          <h2 id="storage-notice-title">{{ 'COOKIE.TITLE' | translate }}</h2>
           <p>{{ 'COOKIE.TEXT' | translate }}</p>
+          <a mat-button routerLink="/privacy-policy">{{ 'LEGAL.PRIVACY' | translate }}</a>
         </div>
-        <div class="cookie-actions">
-          <button mat-button type="button" (click)="rejectOptional()">
-            {{ 'COOKIE.REJECT_OPTIONAL' | translate }}
-          </button>
-          <button mat-stroked-button type="button" (click)="customize()">
-            {{ 'COOKIE.CUSTOMIZE' | translate }}
-          </button>
-          <button mat-flat-button color="primary" type="button" (click)="acceptAll()">
-            {{ 'COOKIE.ACCEPT_ALL' | translate }}
+        <div class="notice-actions">
+          <button mat-flat-button color="primary" type="button" (click)="dismiss()">
+            {{ 'COOKIE.ACKNOWLEDGE' | translate }}
           </button>
         </div>
       </aside>
@@ -33,7 +27,7 @@ import { CookiePreferencesDialogComponent } from './cookie-preferences-dialog.co
   `,
   styles: [
     `
-      .cookie-banner {
+      .storage-notice {
         align-items: center;
         background: var(--airmap-panel-bg);
         border: 1px solid var(--airmap-border);
@@ -56,16 +50,20 @@ import { CookiePreferencesDialogComponent } from './cookie-preferences-dialog.co
       }
       p {
         color: var(--airmap-muted);
+        line-height: 1.5;
         margin: 0;
       }
-      .cookie-actions {
+      a {
+        margin-left: -0.5rem;
+      }
+      .notice-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
         justify-content: flex-end;
       }
       @media (max-width: 760px) {
-        .cookie-banner {
+        .storage-notice {
           align-items: stretch;
           flex-direction: column;
         }
@@ -75,23 +73,11 @@ import { CookiePreferencesDialogComponent } from './cookie-preferences-dialog.co
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CookieBannerComponent {
-  private readonly cookieConsentService = inject(CookieConsentService);
-  private readonly dialog = inject(MatDialog);
+  private readonly storageNotice = inject(BrowserStorageNoticeService);
 
-  readonly visible = computed(() => !this.cookieConsentService.hasConsent());
+  readonly visible = computed(() => !this.storageNotice.dismissed());
 
-  acceptAll(): void {
-    this.cookieConsentService.acceptAll();
-  }
-
-  rejectOptional(): void {
-    this.cookieConsentService.rejectOptional();
-  }
-
-  customize(): void {
-    this.dialog.open(CookiePreferencesDialogComponent, {
-      width: '34rem',
-      maxWidth: 'calc(100vw - 2rem)',
-    });
+  dismiss(): void {
+    this.storageNotice.dismiss();
   }
 }

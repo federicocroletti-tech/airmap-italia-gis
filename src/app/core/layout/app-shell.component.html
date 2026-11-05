@@ -14,7 +14,6 @@
           mat-list-item
           [routerLink]="item.path"
           routerLinkActive="active-link"
-          (click)="closeMobileNav()"
         >
           <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
           <span matListItemTitle>{{ item.labelKey | translate }}</span>
@@ -59,6 +58,24 @@
       </mat-menu>
     </mat-toolbar>
 
+    <nav class="mobile-nav" [attr.aria-label]="'NAV.MAIN' | translate">
+      @for (item of navItems; track trackByPath($index, item)) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="active-link"
+          [attr.aria-current]="isActive(item.path) ? 'page' : null"
+        >
+          <mat-icon aria-hidden="true">{{ item.icon }}</mat-icon>
+          <span>{{ item.labelKey | translate }}</span>
+        </a>
+      }
+    </nav>
+
+    <aside class="demo-notice" role="note">
+      <mat-icon aria-hidden="true">info</mat-icon>
+      <p>{{ 'APP.DEMO_NOTICE' | translate }}</p>
+    </aside>
+
     <main class="content-shell">
       <router-outlet />
     </main>
@@ -69,7 +86,6 @@
         <a routerLink="/privacy-policy">{{ 'LEGAL.PRIVACY' | translate }}</a>
         <a routerLink="/cookie-policy">{{ 'LEGAL.COOKIE' | translate }}</a>
         <a routerLink="/termini-servizio">{{ 'LEGAL.TERMS' | translate }}</a>
-        <a href="mailto:info@example.com">{{ 'APP.CONTACTS' | translate }}</a>
       </nav>
     </footer>
   </mat-sidenav-content>

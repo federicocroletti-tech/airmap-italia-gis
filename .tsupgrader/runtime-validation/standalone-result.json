@@ -1,0 +1,18 @@
+{
+  "planHash": "1feee125ae148765d9e79fb15b0eaa318eb10ad8f3eb90317daba21c8cf01993",
+  "phase": "standalone",
+  "recordedAtUtc": "2026-11-05T14:59:26.0571190Z",
+  "retryCount": 0,
+  "resetBaseline": false,
+  "complete": false,
+  "runningStep": "setup[0]:npm",
+  "partialOutput": "npm warn deprecated @angular/animations@22.2.4: @angular/animations is deprecated. Use \u0060animate.enter\u0060 and \u0060animate.leave\u0060 instead. For more information see: https://v22.angular.dev/guide/animations.\r\n",
+  "cleanupCompleted": true,
+  "result": {
+    "setupSucceeded": false,
+    "setupDurationMs": 0,
+    "setupFailureOutput": null,
+    "assertions": [],
+    "executions": []
+  }
+}

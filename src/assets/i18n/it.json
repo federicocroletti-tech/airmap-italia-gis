@@ -1,10 +1,11 @@
 {
   "APP": {
     "TITLE": "AIRMAP ITALIA",
-    "SUBTITLE": "Monitoraggio GIS della qualita dell'aria urbana",
-    "CONTACTS": "Contatti"
+    "SUBTITLE": "Demo GIS con dati ambientali simulati",
+    "DEMO_NOTICE": "Demo con dati ambientali sintetici e statici, non aggiornati in tempo reale. Valori illustrativi: non usarli per decisioni ambientali o sanitarie."
   },
   "NAV": {
+    "MAIN": "Navigazione principale",
     "MAP": "Mappa",
     "DASHBOARD": "Dashboard",
     "ANALYTICS": "Analytics",
@@ -42,9 +43,7 @@
     "LEVEL_POOR": "Scarsa",
     "LEVEL_CRITICAL": "Critica",
     "TREND": "Trend",
-    "LAST_UPDATE": "Ultimo aggiornamento",
-    "POPULATION_EXPOSURE": "Popolazione esposta",
-    "RISK_LEVEL": "Rischio sanitario stimato"
+    "LAST_UPDATE": "Ultimo aggiornamento"
   },
   "DASHBOARD": {
     "TITLE": "Dashboard ambientale",
@@ -101,8 +100,6 @@
     "ALL": "Tutti",
     "AREA": "Area",
     "DISTRICT": "Quartiere",
-    "RISK": "Rischio",
-    "POPULATION": "Popolazione",
     "FILTER_DISTRICT": "Quartiere",
     "FILTER_LEVEL": "Livello inquinamento",
     "FILTER_RANGE": "Intervallo temporale",
@@ -121,22 +118,26 @@
     "DARK": "Scuro"
   },
   "LEGAL": {
-    "PRIVACY": "Privacy Policy",
-    "COOKIE": "Cookie Policy",
-    "TERMS": "Termini di Servizio",
-    "PLACEHOLDER": "Testo da revisionare prima della pubblicazione."
+    "PRIVACY": "Informazioni sulla privacy",
+    "COOKIE": "Archiviazione nel browser",
+    "TERMS": "Note d'uso della demo",
+    "DEMO_NOTICE": "Informativa provvisoria per una demo non operativa. Descrive il comportamento attuale dell'applicazione e non costituisce consulenza legale né una informativa completa di conformità.",
+    "PRIVACY_DATA": "La demo non offre account e non richiede dati personali per usare ricerca, mappa o dashboard. Non invia le ricerche o i filtri dell'utente a un backend applicativo.",
+    "PRIVACY_STORAGE": "Nel browser vengono salvati localmente il tema, la lingua e la chiusura di questo avviso tramite localStorage. Questi valori restano sul dispositivo fino alla cancellazione dei dati del sito.",
+    "PRIVACY_EXTERNAL": "La mappa carica immagini delle tessere cartografiche dai server OpenStreetMap. Il sito statico e il fornitore delle tessere ricevono richieste di rete e possono trattare dati tecnici come indirizzo IP, intestazioni HTTP e URL richiesti secondo i propri termini e tempi di conservazione.",
+    "PRIVACY_CONTACT": "Referente del progetto: Federico Croletti. Per domande su questa demo:",
+    "OSM_PRIVACY": "Informativa sulla privacy della OpenStreetMap Foundation",
+    "COOKIE_STORAGE": "Il codice della demo non imposta cookie HTTP. Usa localStorage per tema, lingua e chiusura dell'avviso; il browser conserva tali impostazioni sul dispositivo.",
+    "COOKIE_TRACKING": "La demo non integra strumenti di analisi d'uso, pubblicità o tracciamento. Le categorie statistiche e marketing non sono attive.",
+    "COOKIE_CONTROL": "Puoi cancellare i dati locali dalle impostazioni del browser per questo sito. L'avviso verrà mostrato di nuovo dopo la cancellazione della relativa impostazione.",
+    "TERMS_DEMO": "La mappa e i dati sono dimostrativi, sintetici e statici; non rappresentano misurazioni reali o aggiornate e non sono adatti a decisioni ambientali, sanitarie o di emergenza.",
+    "TERMS_DATA": "L'applicazione è fornita a scopo illustrativo, senza garanzie di accuratezza, disponibilità o idoneità a uno scopo specifico. Non è un servizio di monitoraggio ambientale.",
+    "TERMS_THIRD_PARTY": "Le tessere OpenStreetMap e gli altri componenti di terzi restano soggetti ai rispettivi termini e licenze. I diritti sul codice originale sono descritti nel file LICENSE."
   },
   "COOKIE": {
-    "TITLE": "Preferenze cookie",
-    "TEXT": "Usiamo cookie necessari e, solo con consenso, cookie per preferenze, statistiche e marketing.",
-    "ACCEPT_ALL": "Accetta tutto",
-    "REJECT_OPTIONAL": "Solo necessari",
-    "CUSTOMIZE": "Personalizza",
-    "SAVE": "Salva preferenze",
-    "NECESSARY": "Necessari",
-    "PREFERENCES": "Preferenze",
-    "STATISTICS": "Statistiche",
-    "MARKETING": "Marketing"
+    "TITLE": "Avviso sull'archiviazione nel browser",
+    "TEXT": "La demo salva tema, lingua e chiusura dell'avviso solo nel browser. Non usa account né strumenti di analisi o marketing. Le tessere cartografiche sono richieste a OpenStreetMap.",
+    "ACKNOWLEDGE": "Ho capito"
   },
   "COMMON": {
     "LOADING": "Caricamento",

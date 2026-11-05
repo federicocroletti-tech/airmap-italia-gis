@@ -66,8 +66,6 @@ export class AnalyticsPageComponent implements OnInit, AfterViewInit {
     'pm10',
     'pm25',
     'no2',
-    'riskLevel',
-    'populationExposure',
   ];
   readonly dataSource = new MatTableDataSource<AnalyticsRankingRow>([]);
   readonly rankingRows = computed(() =>

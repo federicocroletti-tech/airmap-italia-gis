@@ -149,21 +149,6 @@
             ><th mat-header-cell *matHeaderCellDef mat-sort-header>NO2</th>
             <td mat-cell *matCellDef="let row">{{ row.no2 }}</td></ng-container
           >
-          <ng-container matColumnDef="riskLevel"
-            ><th mat-header-cell *matHeaderCellDef mat-sort-header>
-              {{ 'ANALYTICS.RISK' | translate }}
-            </th>
-            <td mat-cell *matCellDef="let row">{{ row.riskLevel }}</td></ng-container
-          >
-          <ng-container matColumnDef="populationExposure"
-            ><th mat-header-cell *matHeaderCellDef mat-sort-header>
-              {{ 'ANALYTICS.POPULATION' | translate }}
-            </th>
-            <td mat-cell *matCellDef="let row">
-              {{ row.populationExposure | number }}
-            </td></ng-container
-          >
-
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr
             mat-row
