@@ -154,7 +154,7 @@ Il workflow GitHub Actions pubblica il branch `demo/airmap-italia-gis` su:
 https://federicocroletti-tech.github.io/airmap-italia-gis/
 ```
 
-Il build imposta il base path del repository e crea `404.html` per supportare le route Angular dirette. Questo deploy e separato dal servizio Render esistente e non modifica `main`.
+Il build imposta il base path del repository, risolve gli asset relativi a quel base path e crea `404.html` per supportare le route Angular dirette. Questo deploy è separato dal servizio Render esistente e non modifica `main`.
 
 ## Test
 
